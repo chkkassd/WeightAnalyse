@@ -30,7 +30,7 @@ extension String {
      Peter.Shi
      - date: 2016.9.21
      */
-    var md5 : String{
+    var md5: String{
         let cStr = self.cString(using: String.Encoding.utf8)
         let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 16)
         CC_MD5(cStr!,(CC_LONG)(strlen(cStr!)), buffer)

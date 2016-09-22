@@ -12,14 +12,6 @@ class SSFMainTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        FetchDataBrain().signUp(email: "99@qq.com", password: "123456", displayName: "test2") { result in
-            switch result {
-            case .success(let dic):
-                print("haha,i get the result:\(dic)")
-            case .failure(let errorDescription):
-                print("hehe,i get the error:\(errorDescription)")
-            }
-        }
     }
 
     override func didReceiveMemoryWarning() {

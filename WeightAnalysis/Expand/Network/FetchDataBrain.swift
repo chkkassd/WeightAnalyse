@@ -77,6 +77,7 @@ class FetchDataBrain {
        - email:The email to sign up.
        - password: The password to sign up.
        - displayName: The nick name to use in the app.
+       - completionHandler: The closure passed in to handler the operation after async network finishing.
      - Authors:
      Peter.Shi
      - date: 2016.9.20
@@ -101,6 +102,7 @@ class FetchDataBrain {
      - Parameters:
        - email:The account to login in.
        - password:The password to login in.
+       - completionHandler: The closure passed in to handler the operation after async network finishing.
      - Authors:
      Peter.Shi
      - date: 2016.9.21
@@ -123,8 +125,9 @@ class FetchDataBrain {
     /**
      This function acts on updating user displayname.
      - Parameters:
-     - email:The account to login in.
-     - password:The password to login in.
+       - userId: The user id of the current user.
+       - displayName: The nick name of the current user.
+       - completionHandler: The closure passed in to handler the operation after async network finishing.
      - Authors:
      Peter.Shi
      - date: 2016.9.21
@@ -132,6 +135,31 @@ class FetchDataBrain {
     public func update(userId: Int, displayName: String, completionHandler: @escaping (BusinessResult) -> Swift.Void) {
         let url = baseURL().appending("UpdateUserDisplayName")
         let parameters: [String: Any] = ["user_id":userId,"display_name":displayName]
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default)
+            .validate()
+            .responseData { [unowned self](response) in
+                switch response.result {
+                case .success(let value):
+                    self.dealWith(data: value, completionHandler: completionHandler)
+                case .failure(let error):
+                    completionHandler(BusinessResult.failure(error.localizedDescription))
+                }
+        }
+    }
+    
+    /**
+     This function acts on updating user headImage.
+     - Parameters:
+       - userId: The user id of the current user.
+       - headImage: The head image of the current user.
+       - completionHandler: The closure passed in to handler the operation after async network finishing.
+     - Authors:
+     Peter.Shi
+     - date: 2016.9.21
+     */
+    public func update(userId: Int, headImage: String, completionHandler: @escaping (BusinessResult) -> Swift.Void) {
+        let url = baseURL().appending("UpdateUserPhoto")
+        let parameters: [String: Any] = ["user_id":userId,"photo":headImage]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default)
             .validate()
             .responseData { [unowned self](response) in

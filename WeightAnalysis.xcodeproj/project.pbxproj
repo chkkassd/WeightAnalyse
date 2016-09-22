@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		910A32F41D93C1B900722C74 /* loginAndRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910A32F31D93C1B900722C74 /* loginAndRegisterView.swift */; };
 		911459C61D912B770032DE44 /* ConstantValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911459C51D912B770032DE44 /* ConstantValue.swift */; };
 		911459CA1D91393E0032DE44 /* FetchDataBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911459C91D91393E0032DE44 /* FetchDataBrain.swift */; };
 		912D4C1D1D9111DA00CD4FAF /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912D4C191D9111DA00CD4FAF /* Record.storyboard */; };
@@ -15,6 +16,8 @@
 		912D4C221D91142600CD4FAF /* SSFMainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912D4C211D91142600CD4FAF /* SSFMainTabBarViewController.swift */; };
 		912D4C251D9123B800CD4FAF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 912D4C241D9123B800CD4FAF /* Alamofire.framework */; };
 		913BDC8E1D9106DB00CB3C3D /* Analyse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 913BDC8C1D9106DB00CB3C3D /* Analyse.storyboard */; };
+		91433BC81D938C5D00F1CBED /* SSFSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91433BC51D938C5D00F1CBED /* SSFSettingTableViewController.swift */; };
+		91433BCA1D938CD100F1CBED /* SSFSignInAndUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91433BC91D938CD100F1CBED /* SSFSignInAndUpViewController.swift */; };
 		9154357E1D8E90C4008C5D84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9154357C1D8E90C4008C5D84 /* Main.storyboard */; };
 		915435801D8E90C4008C5D84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9154357F1D8E90C4008C5D84 /* Assets.xcassets */; };
 		915435831D8E90C4008C5D84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 915435811D8E90C4008C5D84 /* LaunchScreen.storyboard */; };
@@ -22,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		910A32F31D93C1B900722C74 /* loginAndRegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginAndRegisterView.swift; sourceTree = "<group>"; };
 		911459C51D912B770032DE44 /* ConstantValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantValue.swift; sourceTree = "<group>"; };
 		911459C91D91393E0032DE44 /* FetchDataBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchDataBrain.swift; sourceTree = "<group>"; };
 		912D4C1A1D9111DA00CD4FAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Record.storyboard; sourceTree = "<group>"; };
@@ -30,6 +34,8 @@
 		912D4C211D91142600CD4FAF /* SSFMainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFMainTabBarViewController.swift; sourceTree = "<group>"; };
 		912D4C241D9123B800CD4FAF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		913BDC8D1D9106DB00CB3C3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Analyse.storyboard; sourceTree = "<group>"; };
+		91433BC51D938C5D00F1CBED /* SSFSettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFSettingTableViewController.swift; sourceTree = "<group>"; };
+		91433BC91D938CD100F1CBED /* SSFSignInAndUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFSignInAndUpViewController.swift; sourceTree = "<group>"; };
 		915435751D8E90C3008C5D84 /* WeightAnalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeightAnalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9154357D1D8E90C4008C5D84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9154357F1D8E90C4008C5D84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,7 +106,9 @@
 		912D4C171D9111AA00CD4FAF /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				912D4C1B1D9111DA00CD4FAF /* Setting.storyboard */,
+				91433BC41D938C5D00F1CBED /* controller */,
+				91433BC61D938C5D00F1CBED /* module */,
+				91433BC71D938C5D00F1CBED /* view */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -121,6 +129,31 @@
 				912D4C241D9123B800CD4FAF /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		91433BC41D938C5D00F1CBED /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				91433BC51D938C5D00F1CBED /* SSFSettingTableViewController.swift */,
+				91433BC91D938CD100F1CBED /* SSFSignInAndUpViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		91433BC61D938C5D00F1CBED /* module */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = module;
+			sourceTree = "<group>";
+		};
+		91433BC71D938C5D00F1CBED /* view */ = {
+			isa = PBXGroup;
+			children = (
+				912D4C1B1D9111DA00CD4FAF /* Setting.storyboard */,
+				910A32F31D93C1B900722C74 /* loginAndRegisterView.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		9154356C1D8E90C3008C5D84 = {
@@ -265,9 +298,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				91E6EB6B1D925F9B0046403A /* Utility.swift in Sources */,
+				91433BC81D938C5D00F1CBED /* SSFSettingTableViewController.swift in Sources */,
+				91433BCA1D938CD100F1CBED /* SSFSignInAndUpViewController.swift in Sources */,
 				911459C61D912B770032DE44 /* ConstantValue.swift in Sources */,
 				912D4C221D91142600CD4FAF /* SSFMainTabBarViewController.swift in Sources */,
 				912D4C201D91124200CD4FAF /* AppDelegate.swift in Sources */,
+				910A32F41D93C1B900722C74 /* loginAndRegisterView.swift in Sources */,
 				911459CA1D91393E0032DE44 /* FetchDataBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,7 +326,7 @@
 				912D4C1C1D9111DA00CD4FAF /* Base */,
 			);
 			name = Setting.storyboard;
-			path = ../..;
+			path = ../../..;
 			sourceTree = "<group>";
 		};
 		913BDC8C1D9106DB00CB3C3D /* Analyse.storyboard */ = {
