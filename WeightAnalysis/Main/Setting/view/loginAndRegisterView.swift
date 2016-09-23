@@ -14,40 +14,51 @@ let alertSpace = 50.0
 
 /**
  ## Overview
- Login view which conforms to LoginStyle protocol is custom view that is presented as login style.
+ Login view which conforms to LoginStyle protocol and HasBackgroundView protocol is custom view that is presented as login style.
  
  ## Initializers
  You can creat the class or struct by the flowing ways.
  
- <#The example of initializers#>
+     let loginView = LogingView(containViewFrame: self.view.frame)
  
  ---
  
  - important:
- <#something important about the class or struct.#>
+ Now,it just fits in code,it' not useful to storyboard.
  */
-class LoginView: UIView,LoginStyle {
+class LoginView: UIView,LoginStyle,HasBackgroundView {
     lazy var emailTextField: UITextField = {
-        let email = UITextField(frame: CGRect(x: rowSpace, y: rowSpace, width: Double(self.frame.size.width) - rowSpace * 2, height: rowHeight))
+        let email = UITextField(frame: CGRect(x: alertSpace, y: Double(self.frame.size.height)/2 - (rowHeight * 3 + rowSpace * 2), width: Double(self.frame.size.width) - alertSpace * 2, height: rowHeight))
         email.borderStyle = UITextBorderStyle.roundedRect
         email.placeholder = "请输入帐号"
         return email
     }()
     
     lazy var passwordTextField: UITextField = {
-        let password = UITextField(frame: CGRect(x: rowSpace, y: rowSpace * 2 + rowHeight, width: Double(self.frame.size.width) - rowSpace * 2, height: rowHeight))
+        let password = UITextField(frame: CGRect(x: alertSpace, y: Double(self.frame.size.height)/2 - (rowHeight * 2 + rowSpace), width: Double(self.frame.size.width) - alertSpace * 2, height: rowHeight))
         password.borderStyle = UITextBorderStyle.roundedRect
         password.placeholder = "请输入密码"
         return password
     }()
     
     lazy var loginButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: rowSpace, y: rowSpace * 3 + rowHeight * 2, width: Double(self.frame.size.width) - rowSpace * 2, height: rowHeight))
+        let button = UIButton(frame: CGRect(x: alertSpace, y: Double(self.frame.size.height)/2 - rowHeight, width: Double(self.frame.size.width) - alertSpace * 2, height: rowHeight))
         button.setTitle("go", for:UIControlState.normal)
         button.setTitleColor(UIColor.black, for: UIControlState.normal)
         button.addTarget(self, action:#selector(LoginView.buttonPressed) ,for:UIControlEvents.touchUpInside)
         return button
     }()
+    
+    lazy var backgroundView: UIView = {
+        let view = UIView(frame: self.frame)
+        view.backgroundColor = UIColor.black
+        view.alpha = 0.5
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapBackgroundView))
+        view.addGestureRecognizer(tap)
+        return view
+    }()
+    
+    var delegate: LoginViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -58,30 +69,123 @@ class LoginView: UIView,LoginStyle {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init?(containViewFrame: CGRect) {
+    convenience init?(containViewFrame: CGRect, delegate:LoginViewDelegate) {
         if containViewFrame.size.width == 0 || containViewFrame.size.height == 0 {
             return nil
         }
-        let x = alertSpace
-        let height = rowHeight * 3 + rowSpace * 4
-        let y = Double(containViewFrame.size.height)/2 - height
-        let width = Double(containViewFrame.size.width) - alertSpace * 2
-        
-        self.init(frame:CGRect(x: x, y: y, width: width, height: height))
-        
-        self.backgroundColor = UIColor.white
+
+        self.init(frame:containViewFrame)
+        self.delegate = delegate
+        self.addSubview(self.backgroundView)
         self.addSubview(self.emailTextField)
         self.addSubview(self.passwordTextField)
         self.addSubview(self.loginButton)
     }
     
     func buttonPressed() {
-        
+        self.delegate?.loginViewDidLogin(self)
+    }
+    
+    func tapBackgroundView() {
+        self.endEditing(true)
     }
 }
 
-class RegisterView: UIView {
+/**
+ ## Overview
+ Register view which conforms to RegisterStyle protocol and HasBackgroundView protocol is custom view that is presented as register style.
+ 
+ ## Initializers
+ You can creat the class or struct by the flowing ways.
+ 
+ let registerView = RegisterView(containViewFrame: self.view.frame)
+ 
+ ---
+ 
+ - important:
+ Now,it just fits in code,it' not useful to storyboard.
+ */
+class RegisterView: UIView,RegisterStyle,HasBackgroundView {
+    lazy var emailTextField: UITextField = {
+        let email = UITextField(frame: CGRect(x: alertSpace, y: Double(self.frame.size.height)/2 - (rowHeight * 4 + rowSpace * 3), width: Double(self.frame.size.width) - alertSpace * 2, height: rowHeight))
+        email.borderStyle = UITextBorderStyle.roundedRect
+        email.placeholder = "请输入帐号"
+        return email
+    }()
     
+    lazy var passwordTextField: UITextField = {
+        let password = UITextField(frame: CGRect(x: alertSpace, y: Double(self.frame.size.height)/2 - (rowHeight * 3 + rowSpace * 2), width: Double(self.frame.size.width) - alertSpace * 2, height: rowHeight))
+        password.borderStyle = UITextBorderStyle.roundedRect
+        password.placeholder = "请输入密码"
+        return password
+    }()
+    
+    lazy var nickNameTextfield: UITextField = {
+        let nickName = UITextField(frame: CGRect(x: alertSpace, y: Double(self.frame.size.height)/2 - (rowHeight * 2 + rowSpace), width: Double(self.frame.size.width) - alertSpace * 2, height: rowHeight))
+        nickName.borderStyle = UITextBorderStyle.roundedRect
+        nickName.placeholder = "请输入昵称"
+        return nickName
+    }()
+    
+    lazy var loginButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: alertSpace, y: Double(self.frame.size.height)/2 - rowHeight, width: Double(self.frame.size.width) - alertSpace * 2, height: rowHeight))
+        button.setTitle("go", for:UIControlState.normal)
+        button.setTitleColor(UIColor.black, for: UIControlState.normal)
+        button.addTarget(self, action:#selector(LoginView.buttonPressed) ,for:UIControlEvents.touchUpInside)
+        return button
+    }()
+    
+    lazy var backgroundView: UIView = {
+        let view = UIView(frame: self.frame)
+        view.backgroundColor = UIColor.black
+        view.alpha = 0.5
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapBackgroundView))
+        view.addGestureRecognizer(tap)
+        return view
+    }()
+    
+    var delegate: RegisterViewDelegate?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    convenience init?(containViewFrame: CGRect, delegate:RegisterViewDelegate) {
+        if containViewFrame.size.width == 0 || containViewFrame.size.height == 0 {
+            return nil
+        }
+        
+        self.init(frame:containViewFrame)
+        self.delegate = delegate
+        self.addSubview(self.backgroundView)
+        self.addSubview(self.emailTextField)
+        self.addSubview(self.passwordTextField)
+        self.addSubview(self.nickNameTextfield)
+        self.addSubview(self.loginButton)
+    }
+    
+    func buttonPressed() {
+        self.delegate?.registerViewDidRegister(self)
+    }
+    
+    func tapBackgroundView() {
+        self.endEditing(true)
+    }
+}
+
+// MARK: protocol
+
+protocol LoginViewDelegate {
+    func loginViewDidLogin(_ loginView:LoginView) -> Swift.Void
+}
+
+protocol RegisterViewDelegate {
+    func registerViewDidRegister(_ registerView:RegisterView) -> Swift.Void
 }
 
 protocol LoginStyle {
@@ -91,5 +195,12 @@ protocol LoginStyle {
 }
 
 protocol RegisterStyle {
-    
+    var emailTextField: UITextField { get }
+    var passwordTextField: UITextField { get }
+    var nickNameTextfield: UITextField { get }
+    var loginButton: UIButton { get }
+}
+
+protocol HasBackgroundView {
+    var backgroundView: UIView { get }
 }

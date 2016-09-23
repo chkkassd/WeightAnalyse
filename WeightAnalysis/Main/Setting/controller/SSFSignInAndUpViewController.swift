@@ -12,8 +12,7 @@ class SSFSignInAndUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let a = LoginView(containViewFrame: self.view.frame)
-        self.view.addSubview(a!)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,18 +21,32 @@ class SSFSignInAndUpViewController: UIViewController {
     }
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
+        self.view.addSubview(self.rView)
     }
 
     @IBAction func signInButtonPressed(_ sender: UIButton) {
+        self.view.addSubview(self.lView)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    lazy var rView: RegisterView = {
+        let view = RegisterView(containViewFrame: self.view.frame, delegate: self)
+        return view!
+    }()
+    
+    lazy var lView: LoginView = {
+        let view = LoginView(containViewFrame: self.view.frame, delegate: self)
+        return view!
+    }()
+}
+
+extension SSFSignInAndUpViewController: RegisterViewDelegate {
+    func registerViewDidRegister(_ registerView: RegisterView) {
+        rView.removeFromSuperview()
     }
-    */
+}
 
+extension SSFSignInAndUpViewController: LoginViewDelegate {
+    func loginViewDidLogin(_ loginView: LoginView) {
+        lView.removeFromSuperview()
+    }
 }
