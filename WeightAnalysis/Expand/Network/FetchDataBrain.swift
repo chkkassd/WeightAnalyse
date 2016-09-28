@@ -87,7 +87,7 @@ class FetchDataBrain {
         let parameters = ["email":email,"password":password.md5,"display_name":displayName]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default)
             .validate()
-            .responseData { [unowned self](response) in
+            .responseData {response in
                 switch response.result {
                 case .success(let value):
                     self.dealWith(data: value, completionHandler: completionHandler)
@@ -112,7 +112,7 @@ class FetchDataBrain {
         let parameters = ["email":email,"password":password.md5]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default)
             .validate()
-            .responseData { [unowned self](response) in
+            .responseData {response in
                 switch response.result {
                 case .success(let value):
                     self.dealWith(data: value, completionHandler: completionHandler)
@@ -137,7 +137,7 @@ class FetchDataBrain {
         let parameters: [String: Any] = ["user_id":userId,"display_name":displayName]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default)
             .validate()
-            .responseData { [unowned self](response) in
+            .responseData { response in
                 switch response.result {
                 case .success(let value):
                     self.dealWith(data: value, completionHandler: completionHandler)
@@ -162,7 +162,7 @@ class FetchDataBrain {
         let parameters: [String: Any] = ["user_id":userId,"photo":headImage]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default)
             .validate()
-            .responseData { [unowned self](response) in
+            .responseData { response in
                 switch response.result {
                 case .success(let value):
                     self.dealWith(data: value, completionHandler: completionHandler)

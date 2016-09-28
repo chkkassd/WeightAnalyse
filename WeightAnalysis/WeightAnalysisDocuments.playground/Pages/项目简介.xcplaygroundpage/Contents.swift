@@ -9,6 +9,7 @@
     * 使用swift官方建议的编码规范
  2. 此项目应用架构
     * 使用apple官方建议的MVC层级架构
+    * 本项目主目录根据业务架构划分，每个业务模块根据MVC划分。
  3. 项目第三方库依赖管理
     * 使用Carthage来管理第三方库
  4. scheme命名规则
@@ -18,6 +19,18 @@
  */
 /*:
  - callout(项目章节): 以下根据项目里面的文件夹目录分为不同的章节
+ * [Main](Main)
+   * Container
+   * Record
+   * Analyse
+   * Setting
+ * Expand
+   * Utility
+   * Network
+   * Constant
+ * Supportting
+ * Products
+ * Frameworks
  */
 
 //: [下一页](@next)

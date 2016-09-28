@@ -20,12 +20,12 @@ class SSFSignInAndUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func signUpButtonPressed(_ sender: UIButton) {
-        self.view.addSubview(self.rView)
-    }
-
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         self.view.addSubview(self.lView)
+    }
+
+    @IBAction func signUpButtonPressed(_ sender: UIButton) {
+        self.view.addSubview(self.rView)
     }
 
     lazy var rView: RegisterView = {
@@ -41,12 +41,24 @@ class SSFSignInAndUpViewController: UIViewController {
 
 extension SSFSignInAndUpViewController: RegisterViewDelegate {
     func registerViewDidRegister(_ registerView: RegisterView) {
+        SettingBrain.sharedInstance.register(email: "22@qq.com", password: "111111", nickName: "pp") { result in
+            
+        }
+    }
+    
+    func registerViewDidCancel(_ registerView: RegisterView) {
         rView.removeFromSuperview()
     }
 }
 
 extension SSFSignInAndUpViewController: LoginViewDelegate {
     func loginViewDidLogin(_ loginView: LoginView) {
+        SettingBrain.sharedInstance.login(email: "22@qq.com", password: "111111") { result in
+            print("hahahaha")
+        }
+    }
+    
+    func loginViewDidCancel(_ loginView: LoginView) {
         lView.removeFromSuperview()
     }
 }

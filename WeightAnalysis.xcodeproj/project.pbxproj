@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		910A32F41D93C1B900722C74 /* loginAndRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910A32F31D93C1B900722C74 /* loginAndRegisterView.swift */; };
+		910A32F41D93C1B900722C74 /* LoginAndRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910A32F31D93C1B900722C74 /* LoginAndRegisterView.swift */; };
+		910A32F71D9A70BE00722C74 /* SSFSettingBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910A32F61D9A70BE00722C74 /* SSFSettingBrain.swift */; };
+		910A32FB1D9A773B00722C74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910A32F91D9A773B00722C74 /* AppDelegate.swift */; };
+		910A32FC1D9A773B00722C74 /* SSFMainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910A32FA1D9A773B00722C74 /* SSFMainTabBarViewController.swift */; };
 		911459C61D912B770032DE44 /* ConstantValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911459C51D912B770032DE44 /* ConstantValue.swift */; };
 		911459CA1D91393E0032DE44 /* FetchDataBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911459C91D91393E0032DE44 /* FetchDataBrain.swift */; };
 		912D4C1D1D9111DA00CD4FAF /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912D4C191D9111DA00CD4FAF /* Record.storyboard */; };
 		912D4C1E1D9111DA00CD4FAF /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912D4C1B1D9111DA00CD4FAF /* Setting.storyboard */; };
-		912D4C201D91124200CD4FAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912D4C1F1D91124200CD4FAF /* AppDelegate.swift */; };
-		912D4C221D91142600CD4FAF /* SSFMainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912D4C211D91142600CD4FAF /* SSFMainTabBarViewController.swift */; };
 		912D4C251D9123B800CD4FAF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 912D4C241D9123B800CD4FAF /* Alamofire.framework */; };
 		913BDC8E1D9106DB00CB3C3D /* Analyse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 913BDC8C1D9106DB00CB3C3D /* Analyse.storyboard */; };
 		91433BC81D938C5D00F1CBED /* SSFSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91433BC51D938C5D00F1CBED /* SSFSettingTableViewController.swift */; };
@@ -25,13 +26,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		910A32F31D93C1B900722C74 /* loginAndRegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginAndRegisterView.swift; sourceTree = "<group>"; };
+		910A32F31D93C1B900722C74 /* LoginAndRegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginAndRegisterView.swift; sourceTree = "<group>"; };
+		910A32F61D9A70BE00722C74 /* SSFSettingBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFSettingBrain.swift; sourceTree = "<group>"; };
+		910A32F91D9A773B00722C74 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		910A32FA1D9A773B00722C74 /* SSFMainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFMainTabBarViewController.swift; sourceTree = "<group>"; };
 		911459C51D912B770032DE44 /* ConstantValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantValue.swift; sourceTree = "<group>"; };
 		911459C91D91393E0032DE44 /* FetchDataBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchDataBrain.swift; sourceTree = "<group>"; };
 		912D4C1A1D9111DA00CD4FAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Record.storyboard; sourceTree = "<group>"; };
 		912D4C1C1D9111DA00CD4FAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Setting.storyboard; sourceTree = "<group>"; };
-		912D4C1F1D91124200CD4FAF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		912D4C211D91142600CD4FAF /* SSFMainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFMainTabBarViewController.swift; sourceTree = "<group>"; };
 		912D4C241D9123B800CD4FAF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		913BDC8D1D9106DB00CB3C3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Analyse.storyboard; sourceTree = "<group>"; };
 		91433BC51D938C5D00F1CBED /* SSFSettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFSettingTableViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		910A32F51D9A6E9A00722C74 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				910A32F61D9A70BE00722C74 /* SSFSettingBrain.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		910A32F81D9A773B00722C74 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				9154357C1D8E90C4008C5D84 /* Main.storyboard */,
+				910A32F91D9A773B00722C74 /* AppDelegate.swift */,
+				910A32FA1D9A773B00722C74 /* SSFMainTabBarViewController.swift */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
 		911459C41D912B350032DE44 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,9 +97,7 @@
 		912D4C141D9111AA00CD4FAF /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				912D4C1F1D91124200CD4FAF /* AppDelegate.swift */,
-				912D4C211D91142600CD4FAF /* SSFMainTabBarViewController.swift */,
-				9154357C1D8E90C4008C5D84 /* Main.storyboard */,
+				910A32F81D9A773B00722C74 /* Container */,
 				912D4C161D9111AA00CD4FAF /* Record */,
 				912D4C151D9111AA00CD4FAF /* Analyse */,
 				912D4C171D9111AA00CD4FAF /* Setting */,
@@ -106,9 +124,9 @@
 		912D4C171D9111AA00CD4FAF /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				91433BC41D938C5D00F1CBED /* controller */,
-				91433BC61D938C5D00F1CBED /* module */,
+				910A32F51D9A6E9A00722C74 /* model */,
 				91433BC71D938C5D00F1CBED /* view */,
+				91433BC41D938C5D00F1CBED /* controller */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -140,18 +158,11 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
-		91433BC61D938C5D00F1CBED /* module */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = module;
-			sourceTree = "<group>";
-		};
 		91433BC71D938C5D00F1CBED /* view */ = {
 			isa = PBXGroup;
 			children = (
 				912D4C1B1D9111DA00CD4FAF /* Setting.storyboard */,
-				910A32F31D93C1B900722C74 /* loginAndRegisterView.swift */,
+				910A32F31D93C1B900722C74 /* LoginAndRegisterView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -179,12 +190,12 @@
 				9154358B1D8E9413008C5D84 /* WeightAnalysisDocuments.playground */,
 				912D4C141D9111AA00CD4FAF /* Main */,
 				912D4C181D9111B300CD4FAF /* Expand */,
-				91D7483D1D90CED4004C3100 /* supportting */,
+				91D7483D1D90CED4004C3100 /* Supportting */,
 			);
 			path = WeightAnalysis;
 			sourceTree = "<group>";
 		};
-		91D7483D1D90CED4004C3100 /* supportting */ = {
+		91D7483D1D90CED4004C3100 /* Supportting */ = {
 			isa = PBXGroup;
 			children = (
 				91E6EB6C1D9271BC0046403A /* WeightAnalysis-Bridging-Header.h */,
@@ -192,7 +203,7 @@
 				915435811D8E90C4008C5D84 /* LaunchScreen.storyboard */,
 				915435841D8E90C4008C5D84 /* Info.plist */,
 			);
-			name = supportting;
+			name = Supportting;
 			sourceTree = "<group>";
 		};
 		91E6EB691D925F7F0046403A /* Utility */ = {
@@ -237,7 +248,7 @@
 					915435741D8E90C3008C5D84 = {
 						CreatedOnToolsVersion = 8.0;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -297,14 +308,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				910A32FC1D9A773B00722C74 /* SSFMainTabBarViewController.swift in Sources */,
+				910A32FB1D9A773B00722C74 /* AppDelegate.swift in Sources */,
 				91E6EB6B1D925F9B0046403A /* Utility.swift in Sources */,
 				91433BC81D938C5D00F1CBED /* SSFSettingTableViewController.swift in Sources */,
 				91433BCA1D938CD100F1CBED /* SSFSignInAndUpViewController.swift in Sources */,
 				911459C61D912B770032DE44 /* ConstantValue.swift in Sources */,
-				912D4C221D91142600CD4FAF /* SSFMainTabBarViewController.swift in Sources */,
-				912D4C201D91124200CD4FAF /* AppDelegate.swift in Sources */,
-				910A32F41D93C1B900722C74 /* loginAndRegisterView.swift in Sources */,
+				910A32F41D93C1B900722C74 /* LoginAndRegisterView.swift in Sources */,
 				911459CA1D91393E0032DE44 /* FetchDataBrain.swift in Sources */,
+				910A32F71D9A70BE00722C74 /* SSFSettingBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +356,7 @@
 				9154357D1D8E90C4008C5D84 /* Base */,
 			);
 			name = Main.storyboard;
-			path = ..;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		915435811D8E90C4008C5D84 /* LaunchScreen.storyboard */ = {
@@ -456,6 +468,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -476,6 +489,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

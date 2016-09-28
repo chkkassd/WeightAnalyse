@@ -11,6 +11,7 @@ import UIKit
 let rowSpace = 8.0
 let rowHeight = 30.0
 let alertSpace = 50.0
+let cancelButtonSize = 50.0
 
 /**
  ## Overview
@@ -26,7 +27,7 @@ let alertSpace = 50.0
  - important:
  Now,it just fits in code,it' not useful to storyboard.
  */
-class LoginView: UIView,LoginStyle,HasBackgroundView {
+class LoginView: UIView,LoginStyle,HasBackgroundView,HasCancelButton {
     lazy var emailTextField: UITextField = {
         let email = UITextField(frame: CGRect(x: alertSpace, y: Double(self.frame.size.height)/2 - (rowHeight * 3 + rowSpace * 2), width: Double(self.frame.size.width) - alertSpace * 2, height: rowHeight))
         email.borderStyle = UITextBorderStyle.roundedRect
@@ -80,6 +81,7 @@ class LoginView: UIView,LoginStyle,HasBackgroundView {
         self.addSubview(self.emailTextField)
         self.addSubview(self.passwordTextField)
         self.addSubview(self.loginButton)
+        self.addSubview(self.cancelButton)
     }
     
     func buttonPressed() {
@@ -88,6 +90,10 @@ class LoginView: UIView,LoginStyle,HasBackgroundView {
     
     func tapBackgroundView() {
         self.endEditing(true)
+    }
+    
+    func cancelButtonPressed() {
+        self.delegate?.loginViewDidCancel(self)
     }
 }
 
@@ -98,14 +104,14 @@ class LoginView: UIView,LoginStyle,HasBackgroundView {
  ## Initializers
  You can creat the class or struct by the flowing ways.
  
- let registerView = RegisterView(containViewFrame: self.view.frame)
+     let registerView = RegisterView(containViewFrame: self.view.frame)
  
  ---
  
  - important:
  Now,it just fits in code,it' not useful to storyboard.
  */
-class RegisterView: UIView,RegisterStyle,HasBackgroundView {
+class RegisterView: UIView,RegisterStyle,HasBackgroundView,HasCancelButton {
     lazy var emailTextField: UITextField = {
         let email = UITextField(frame: CGRect(x: alertSpace, y: Double(self.frame.size.height)/2 - (rowHeight * 4 + rowSpace * 3), width: Double(self.frame.size.width) - alertSpace * 2, height: rowHeight))
         email.borderStyle = UITextBorderStyle.roundedRect
@@ -129,9 +135,9 @@ class RegisterView: UIView,RegisterStyle,HasBackgroundView {
     
     lazy var loginButton: UIButton = {
         let button = UIButton(frame: CGRect(x: alertSpace, y: Double(self.frame.size.height)/2 - rowHeight, width: Double(self.frame.size.width) - alertSpace * 2, height: rowHeight))
-        button.setTitle("go", for:UIControlState.normal)
+        button.setTitle("注册", for:UIControlState.normal)
         button.setTitleColor(UIColor.black, for: UIControlState.normal)
-        button.addTarget(self, action:#selector(LoginView.buttonPressed) ,for:UIControlEvents.touchUpInside)
+        button.addTarget(self, action:#selector(RegisterView.buttonPressed) ,for:UIControlEvents.touchUpInside)
         return button
     }()
     
@@ -167,6 +173,7 @@ class RegisterView: UIView,RegisterStyle,HasBackgroundView {
         self.addSubview(self.passwordTextField)
         self.addSubview(self.nickNameTextfield)
         self.addSubview(self.loginButton)
+        self.addSubview(self.cancelButton)
     }
     
     func buttonPressed() {
@@ -176,16 +183,22 @@ class RegisterView: UIView,RegisterStyle,HasBackgroundView {
     func tapBackgroundView() {
         self.endEditing(true)
     }
+    
+    func cancelButtonPressed() {
+        self.delegate?.registerViewDidCancel(self)
+    }
 }
 
 // MARK: protocol
 
 protocol LoginViewDelegate {
     func loginViewDidLogin(_ loginView:LoginView) -> Swift.Void
+    func loginViewDidCancel(_ loginView:LoginView) -> Swift.Void
 }
 
 protocol RegisterViewDelegate {
     func registerViewDidRegister(_ registerView:RegisterView) -> Swift.Void
+    func registerViewDidCancel(_ registerView:RegisterView) -> Swift.Void
 }
 
 protocol LoginStyle {
@@ -203,4 +216,17 @@ protocol RegisterStyle {
 
 protocol HasBackgroundView {
     var backgroundView: UIView { get }
+}
+
+protocol HasCancelButton {
+    var cancelButton: UIButton { get }
+}
+
+extension HasCancelButton {
+    var cancelButton: UIButton {
+        let button = UIButton(frame: CGRect(x: Double((self as! UIView).frame.size.width) - cancelButtonSize - rowSpace , y: rowSpace, width: cancelButtonSize, height: cancelButtonSize))
+        button.setTitle("关闭", for: UIControlState.normal)
+        button.addTarget(self, action: #selector(LoginView.cancelButtonPressed), for: UIControlEvents.touchUpInside)
+        return button
+    }
 }
