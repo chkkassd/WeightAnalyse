@@ -31,8 +31,16 @@ typealias CompletionHandler<Value> = (SSFResult<Value>) -> Swift.Void
  ---
  
 */
+import CoreData
+import UIKit
+
 class SettingBrain {
     static let sharedInstance = SettingBrain()
+    
+    var managedObjectContext: NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+
+    var appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
 
     /**
      The function acts on login by connect the login api,and save the user data to local.
@@ -44,13 +52,19 @@ class SettingBrain {
      Peter.Shi
      - date: 2016.9.28
      */
-    public func login(email: String, password: String, completionHandler:CompletionHandler<String>) -> Swift.Void {
+    public func login(email: String, password: String, completionHandler:@escaping CompletionHandler<User>) -> Swift.Void {
         FetchDataBrain().signIn(email: email, password: password) { businessResult in
             switch businessResult {
             case .success(let value):
-            print("opopopop\(value)")
+                print("opopopop\(value)")
+                self.managedObjectContext?.perform{
+                   let user = User.userWithUserInfo(userInfo: value, inManagedObjectContext: self.managedObjectContext!)
+                   self.appDelegate?.saveContext()
+                    completionHandler(SSFResult.success(user!))
+                }
             case .failure(let value):
-            print(value)
+                print(value)
+                completionHandler(SSFResult.failure(value))
             }
         }
     }

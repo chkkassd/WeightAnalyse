@@ -57,7 +57,7 @@ class FetchDataBrain {
     private func dealWith(data: Data, completionHandler:(BusinessResult) -> Swift.Void) {
         let resultString = String.decodeNetwork(data: data)
         let resultData = resultString.data(using: String.Encoding.utf8)
-        let dic = try! JSONSerialization.jsonObject(with: resultData!, options: JSONSerialization.ReadingOptions.mutableContainers)
+        let dic = try? JSONSerialization.jsonObject(with: resultData!, options: JSONSerialization.ReadingOptions.mutableContainers)
         let responseCode = (dic as! Dictionary<String,Any>)["response_code"]
         
         switch responseCode as! Int {
