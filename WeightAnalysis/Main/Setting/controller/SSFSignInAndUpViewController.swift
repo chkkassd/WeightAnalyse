@@ -12,7 +12,7 @@ class SSFSignInAndUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        SettingBrain.sharedInstance.printDataBase()
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,8 +53,15 @@ extension SSFSignInAndUpViewController: RegisterViewDelegate {
 
 extension SSFSignInAndUpViewController: LoginViewDelegate {
     func loginViewDidLogin(_ loginView: LoginView) {
-        SettingBrain.sharedInstance.login(email: "22@qq.com", password: "111111") { result in
-            print("hahahaha")
+        self.pleaseWait()
+        SettingBrain.sharedInstance.login(email: "22@qq.com", password: "111111") { results in
+            switch results {
+            case .success(_):
+                self.lView.removeFromSuperview()
+                self.noticeSuccess("登陆成功")
+            case .failure(let errInfo):
+                print("\(errInfo)")
+            }
         }
     }
     

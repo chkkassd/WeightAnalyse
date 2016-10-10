@@ -21,6 +21,7 @@
 		9133F87C1DAA3CFC00BE6086 /* Record+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133F8781DAA3CFC00BE6086 /* Record+CoreDataProperties.swift */; };
 		9133F87D1DAA3CFC00BE6086 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133F8791DAA3CFC00BE6086 /* User+CoreDataClass.swift */; };
 		9133F87E1DAA3CFC00BE6086 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133F87A1DAA3CFC00BE6086 /* User+CoreDataProperties.swift */; };
+		9133F8801DABA11400BE6086 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133F87F1DABA11400BE6086 /* SwiftNotice.swift */; };
 		913BDC8E1D9106DB00CB3C3D /* Analyse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 913BDC8C1D9106DB00CB3C3D /* Analyse.storyboard */; };
 		91433BC81D938C5D00F1CBED /* SSFSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91433BC51D938C5D00F1CBED /* SSFSettingTableViewController.swift */; };
 		91433BCA1D938CD100F1CBED /* SSFSignInAndUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91433BC91D938CD100F1CBED /* SSFSignInAndUpViewController.swift */; };
@@ -45,6 +46,7 @@
 		9133F8781DAA3CFC00BE6086 /* Record+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Record+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9133F8791DAA3CFC00BE6086 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9133F87A1DAA3CFC00BE6086 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9133F87F1DABA11400BE6086 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
 		913BDC8D1D9106DB00CB3C3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Analyse.storyboard; sourceTree = "<group>"; };
 		91433BC51D938C5D00F1CBED /* SSFSettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFSettingTableViewController.swift; sourceTree = "<group>"; };
 		91433BC91D938CD100F1CBED /* SSFSignInAndUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFSignInAndUpViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 		91E6EB691D925F7F0046403A /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				9133F87F1DABA11400BE6086 /* SwiftNotice.swift */,
 				91E6EB6A1D925F9B0046403A /* Utility.swift */,
 			);
 			path = Utility;
@@ -334,6 +337,7 @@
 				910A32FC1D9A773B00722C74 /* SSFMainTabBarViewController.swift in Sources */,
 				9133F8761DAA381A00BE6086 /* WeightAnalysis.xcdatamodeld in Sources */,
 				910A32FB1D9A773B00722C74 /* AppDelegate.swift in Sources */,
+				9133F8801DABA11400BE6086 /* SwiftNotice.swift in Sources */,
 				9133F87D1DAA3CFC00BE6086 /* User+CoreDataClass.swift in Sources */,
 				91E6EB6B1D925F9B0046403A /* Utility.swift in Sources */,
 				9133F87C1DAA3CFC00BE6086 /* Record+CoreDataProperties.swift in Sources */,
