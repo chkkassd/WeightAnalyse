@@ -16,7 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if !SettingBrain.sharedInstance.checkUserIsLogin() {
+            let controller: SSFSignInAndUpViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SSFSignInAndUpViewController") as! SSFSignInAndUpViewController
+            controller.delegate = self
+            self.window?.rootViewController = controller
+        }
         return true
     }
 
@@ -89,3 +94,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: SSFSignInAndUpViewControllerDelegate {
+    func signInAndUpViewController(didSignIn: SSFSignInAndUpViewController) {
+        let mainController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        self.window?.rootViewController = mainController
+        self.noticeTop("Login Successful!", autoClear: true, autoClearTime: 2)
+    }
+    
+    func signInAndUpViewController(didRegister: SSFSignInAndUpViewController) {
+        let mainController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        self.window?.rootViewController = mainController
+        self.noticeTop("Register Successful!", autoClear: true, autoClearTime: 2)
+    }
+}

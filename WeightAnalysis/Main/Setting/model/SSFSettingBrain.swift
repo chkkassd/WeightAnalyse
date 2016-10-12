@@ -109,18 +109,8 @@ class SettingBrain {
     public func register(email: String, password: String, nickName: String, completionHandler:@escaping CompletionHandler<User>) -> Swift.Void {
         FetchDataBrain().signUp(email: email, password: password, displayName: nickName) { businessResult in
             switch businessResult {
-            case .success(let value):
-                if let info = (value as? [String : Any])?["user"] {
-                    self.managedObjectContext?.perform{
-                        if let user = User.userWithUserInfo(userInfo: info, inManagedObjectContext: self.managedObjectContext!) {
-                            self.appDelegate?.saveContext()
-                            self.loginUser = user
-                            UserDefaults.standard.set(NSInteger(user.user_id), forKey: UserIdKey)
-                            UserDefaults.standard.synchronize()
-                            completionHandler(SSFResult.success(user))
-                        }
-                    }
-                }
+            case .success(_):
+                    self.login(email: email, password: password, completionHandler: completionHandler)
             case .failure(let value):
                 completionHandler(SSFResult.failure(value))
             }
