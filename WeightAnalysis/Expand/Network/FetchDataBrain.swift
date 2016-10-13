@@ -108,6 +108,7 @@ class FetchDataBrain {
      - date: 2016.9.21
      */
     public func signIn(email: String, password: String, completionHandler: @escaping (BusinessResult) -> Swift.Void) {
+        /* Because of the network reason, stop to using the net work api
         let url = baseURL().appending("SignIn")
         let parameters = ["email":email,"password":password.md5]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default)
@@ -120,6 +121,9 @@ class FetchDataBrain {
                     completionHandler(BusinessResult.failure(error.localizedDescription))
                 }
         }
+         */
+        let dic = ["response_code":100,"user":["user_id":888,"email":email,"display_name":"peter"]] as [String : Any]
+        completionHandler(BusinessResult.success(dic))
     }
     
     /**

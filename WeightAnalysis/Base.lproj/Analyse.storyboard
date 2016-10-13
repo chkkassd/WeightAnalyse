@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sjW-3n-Nt3">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sjW-3n-Nt3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -25,11 +25,11 @@
             </objects>
             <point key="canvasLocation" x="1504.8" y="491.60419790104953"/>
         </scene>
-        <!--Item 2-->
+        <!--分析-->
         <scene sceneID="yTi-p6-7NP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sjW-3n-Nt3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="jv4-0D-feT"/>
+                    <tabBarItem key="tabBarItem" title="分析" image="ico_analysis" id="jv4-0D-feT"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ItP-JF-4W7">
@@ -46,4 +46,7 @@
             <point key="canvasLocation" x="565.60000000000002" y="491.60419790104953"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ico_analysis" width="25" height="25"/>
+    </resources>
 </document>

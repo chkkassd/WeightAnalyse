@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ev9-ef-gAP">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ev9-ef-gAP">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -115,49 +115,49 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="VAN-jz-LMJ"/>
-                                <exclude reference="EZ7-vU-Cnb"/>
-                                <exclude reference="B4a-1a-8fr"/>
-                                <exclude reference="WKc-PB-Uw8"/>
+                                <exclude reference="PMI-D8-hFH"/>
+                                <exclude reference="ULj-Su-8Hj"/>
+                                <exclude reference="lbS-P8-gMj"/>
+                                <exclude reference="taK-P5-NTS"/>
+                                <exclude reference="yGE-LE-Fyn"/>
                                 <exclude reference="0mD-dX-dse"/>
                                 <exclude reference="3mj-Pu-3bi"/>
                                 <exclude reference="Asj-mJ-chA"/>
-                                <exclude reference="lbS-P8-gMj"/>
-                                <exclude reference="ULj-Su-8Hj"/>
-                                <exclude reference="taK-P5-NTS"/>
-                                <exclude reference="PMI-D8-hFH"/>
-                                <exclude reference="yGE-LE-Fyn"/>
+                                <exclude reference="B4a-1a-8fr"/>
+                                <exclude reference="EZ7-vU-Cnb"/>
+                                <exclude reference="VAN-jz-LMJ"/>
+                                <exclude reference="WKc-PB-Uw8"/>
                                 <exclude reference="Fbp-gS-DZs"/>
-                                <exclude reference="LqF-tQ-ah3"/>
-                                <exclude reference="qmN-8w-Iua"/>
                                 <exclude reference="H1G-Dv-Pnp"/>
+                                <exclude reference="LqF-tQ-ah3"/>
                                 <exclude reference="nlu-sm-LrH"/>
+                                <exclude reference="qmN-8w-Iua"/>
                                 <exclude reference="hjo-2s-mxU"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
-                                <include reference="WKc-PB-Uw8"/>
+                                <include reference="PMI-D8-hFH"/>
+                                <include reference="ULj-Su-8Hj"/>
+                                <include reference="lbS-P8-gMj"/>
                                 <include reference="0mD-dX-dse"/>
                                 <include reference="3mj-Pu-3bi"/>
-                                <include reference="lbS-P8-gMj"/>
-                                <include reference="ULj-Su-8Hj"/>
-                                <include reference="PMI-D8-hFH"/>
-                                <include reference="qmN-8w-Iua"/>
+                                <include reference="WKc-PB-Uw8"/>
                                 <include reference="nlu-sm-LrH"/>
+                                <include reference="qmN-8w-Iua"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="VAN-jz-LMJ"/>
-                                <include reference="EZ7-vU-Cnb"/>
-                                <include reference="B4a-1a-8fr"/>
-                                <include reference="Asj-mJ-chA"/>
                                 <include reference="taK-P5-NTS"/>
                                 <include reference="yGE-LE-Fyn"/>
+                                <include reference="Asj-mJ-chA"/>
+                                <include reference="B4a-1a-8fr"/>
+                                <include reference="EZ7-vU-Cnb"/>
+                                <include reference="VAN-jz-LMJ"/>
                                 <include reference="Fbp-gS-DZs"/>
-                                <include reference="LqF-tQ-ah3"/>
                                 <include reference="H1G-Dv-Pnp"/>
+                                <include reference="LqF-tQ-ah3"/>
                                 <include reference="hjo-2s-mxU"/>
                             </mask>
                         </variation>
