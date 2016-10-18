@@ -20,11 +20,10 @@
 /*:
  - callout(项目章节): 以下根据项目里面的文件夹目录分为不同的章节
  * [Main](Main)
-   * Container
-   * Record
-   * Analyse
-   * Setting
- * Expand
+   * [Model](Main)
+   * [View](Main)
+   * [Controller](Main)
+ * [Expand](Expand)
    * Utility
    * Network
    * Constant

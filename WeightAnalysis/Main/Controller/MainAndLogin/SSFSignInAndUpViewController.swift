@@ -48,7 +48,7 @@ class SSFSignInAndUpViewController: UIViewController {
 extension SSFSignInAndUpViewController: RegisterViewDelegate {
     func registerViewDidRegister(registerView: RegisterView, email: String, password: String, nickName: String) {
         self.pleaseWait()
-        AnalysisBrain.sharedInstance.register(email: email, password: password, nickName: nickName) { results in
+        AccountBrain.sharedInstance.register(email: email, password: password, nickName: nickName) { results in
             self.clearAllNotice()
             switch results {
             case .success(_):
@@ -70,7 +70,7 @@ extension SSFSignInAndUpViewController: RegisterViewDelegate {
 extension SSFSignInAndUpViewController: LoginViewDelegate {
     func loginViewDidLogin(loginView: LoginView, email: String, password: String) {
         self.pleaseWait()
-        AnalysisBrain.sharedInstance.login(email: email, password: password) { results in
+        AccountBrain.sharedInstance.login(email: email, password: password) { results in
             self.clearAllNotice()
             switch results {
             case .success(_):

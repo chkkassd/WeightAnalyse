@@ -19,36 +19,137 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="FPA-TD-miJ" kind="show" id="Lvr-dU-JK3"/>
+                        <segue destination="BLc-we-tXH" kind="relationship" relationship="rootViewController" id="SKW-Of-Uhv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edi-sY-2np" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="586" y="-161"/>
         </scene>
-        <!--今日-->
-        <scene sceneID="jda-I0-wGp">
+        <!--记录-->
+        <scene sceneID="US7-RW-Puc">
             <objects>
-                <tableViewController id="FPA-TD-miJ" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gjf-j7-zt8">
+                <tableViewController id="BLc-we-tXH" customClass="SSFRecordTableViewController" customModule="WeightAnalysis" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xZB-JY-5op">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="fsF-PJ-gPZ">
-                            <rect key="frame" x="0.0" y="64" width="375" height="183"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="NUU-au-ywD" customClass="RecordView" customModule="WeightAnalysis" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="64" width="375" height="200"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-12-23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdJ-7T-Me9">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="记录今天体重" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hyL-Ve-OEK">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="BLc-we-tXH" id="dYq-Xi-mPG"/>
+                                    </connections>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="设置目标体重" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r2m-Yb-VN9">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="BLc-we-tXH" id="M95-Hw-ack"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="r2m-Yb-VN9" firstAttribute="top" secondItem="hyL-Ve-OEK" secondAttribute="bottom" constant="23" id="Bkj-AJ-nIB"/>
+                                <constraint firstItem="rdJ-7T-Me9" firstAttribute="leading" secondItem="NUU-au-ywD" secondAttribute="leading" constant="8" id="BxN-7J-Ci0"/>
+                                <constraint firstItem="rdJ-7T-Me9" firstAttribute="leading" secondItem="NUU-au-ywD" secondAttribute="leading" constant="8" id="EGb-lV-i2v"/>
+                                <constraint firstItem="r2m-Yb-VN9" firstAttribute="centerX" secondItem="NUU-au-ywD" secondAttribute="centerX" id="QJk-EV-u83"/>
+                                <constraint firstItem="hyL-Ve-OEK" firstAttribute="centerX" secondItem="NUU-au-ywD" secondAttribute="centerX" id="YM5-LY-Ilj"/>
+                                <constraint firstItem="r2m-Yb-VN9" firstAttribute="centerX" secondItem="NUU-au-ywD" secondAttribute="centerX" id="ZPN-iW-ln4"/>
+                                <constraint firstItem="hyL-Ve-OEK" firstAttribute="centerX" secondItem="NUU-au-ywD" secondAttribute="centerX" id="bzi-sV-A1c"/>
+                                <constraint firstItem="rdJ-7T-Me9" firstAttribute="centerY" secondItem="NUU-au-ywD" secondAttribute="centerY" id="lnK-Yq-934"/>
+                                <constraint firstItem="rdJ-7T-Me9" firstAttribute="top" secondItem="NUU-au-ywD" secondAttribute="top" constant="8" id="m2n-ti-Xe7"/>
+                                <constraint firstItem="hyL-Ve-OEK" firstAttribute="top" secondItem="NUU-au-ywD" secondAttribute="top" constant="68" id="qGt-48-wqE"/>
+                                <constraint firstItem="r2m-Yb-VN9" firstAttribute="top" secondItem="hyL-Ve-OEK" secondAttribute="bottom" constant="21" id="qHN-65-MXK"/>
+                                <constraint firstItem="hyL-Ve-OEK" firstAttribute="top" secondItem="NUU-au-ywD" secondAttribute="top" constant="69" id="vre-sh-ShQ"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="stroeColor">
+                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="strokeWidth">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
+                                    <color key="value" red="0.15686274510000001" green="0.58823529409999997" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                    <color key="value" red="0.32610645169722224" green="0.71526979930833334" blue="0.80275990605555547" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="BxN-7J-Ci0"/>
+                                    <exclude reference="EGb-lV-i2v"/>
+                                    <exclude reference="lnK-Yq-934"/>
+                                    <exclude reference="m2n-ti-Xe7"/>
+                                    <exclude reference="YM5-LY-Ilj"/>
+                                    <exclude reference="bzi-sV-A1c"/>
+                                    <exclude reference="qGt-48-wqE"/>
+                                    <exclude reference="vre-sh-ShQ"/>
+                                    <exclude reference="Bkj-AJ-nIB"/>
+                                    <exclude reference="QJk-EV-u83"/>
+                                    <exclude reference="ZPN-iW-ln4"/>
+                                    <exclude reference="qHN-65-MXK"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=compact">
+                                <mask key="constraints">
+                                    <include reference="EGb-lV-i2v"/>
+                                    <include reference="lnK-Yq-934"/>
+                                    <include reference="bzi-sV-A1c"/>
+                                    <include reference="qGt-48-wqE"/>
+                                    <include reference="Bkj-AJ-nIB"/>
+                                    <include reference="ZPN-iW-ln4"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="BxN-7J-Ci0"/>
+                                    <include reference="m2n-ti-Xe7"/>
+                                    <include reference="YM5-LY-Ilj"/>
+                                    <include reference="vre-sh-ShQ"/>
+                                    <include reference="QJk-EV-u83"/>
+                                    <include reference="qHN-65-MXK"/>
+                                </mask>
+                            </variation>
                         </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1cB-PQ-14K">
+                                <rect key="frame" x="0.0" y="292" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1cB-PQ-14K" id="ERg-jB-NTL">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="FPA-TD-miJ" id="vxv-tC-B1h"/>
-                            <outlet property="delegate" destination="FPA-TD-miJ" id="iGa-5B-kRe"/>
+                            <outlet property="dataSource" destination="BLc-we-tXH" id="Kpr-vD-E22"/>
+                            <outlet property="delegate" destination="BLc-we-tXH" id="xvC-C1-EJI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="今日" id="gjd-kf-SFv"/>
+                    <navigationItem key="navigationItem" title="记录" id="x8I-rh-kqg"/>
+                    <connections>
+                        <outlet property="expectTextField" destination="r2m-Yb-VN9" id="tKc-sz-Zfu"/>
+                        <outlet property="recordTextField" destination="hyL-Ve-OEK" id="vId-K8-43y"/>
+                        <outlet property="timeLabel" destination="rdJ-7T-Me9" id="94r-ui-qh3"/>
+                    </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MXm-62-Kwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ib7-mQ-9n4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1397.5999999999999" y="-161.46926536731635"/>
+            <point key="canvasLocation" x="1333.5999999999999" y="-161.46926536731635"/>
         </scene>
     </scenes>
     <resources>

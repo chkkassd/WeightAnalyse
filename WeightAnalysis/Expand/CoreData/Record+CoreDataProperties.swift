@@ -16,7 +16,7 @@ extension Record {
     }
 
     @NSManaged public var weight: Double
-    @NSManaged public var time: NSDate?
+    @NSManaged public var time: String?
     @NSManaged public var record_id: String?
     @NSManaged public var recordUser: User?
 

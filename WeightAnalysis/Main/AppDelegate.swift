@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        if !AnalysisBrain.sharedInstance.checkUserIsLogin() {
+        if !AccountBrain.sharedInstance.checkUserIsLogin() {
             showLoginView()
         }
         return true

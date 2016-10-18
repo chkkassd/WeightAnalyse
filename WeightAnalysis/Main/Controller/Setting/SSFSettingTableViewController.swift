@@ -12,8 +12,8 @@ class SSFSettingTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        nickNameLabel.text = AnalysisBrain.sharedInstance.currentUser?.display_name
-        emailLabel.text = AnalysisBrain.sharedInstance.currentUser?.email
+        nickNameLabel.text = AccountBrain.sharedInstance.currentUser?.display_name
+        emailLabel.text = AccountBrain.sharedInstance.currentUser?.email
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +29,7 @@ class SSFSettingTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 1 && indexPath.row == 0 {
             (UIApplication.shared.delegate as? AppDelegate)?.showLoginView()
-            AnalysisBrain.sharedInstance.logOut()
+            AccountBrain.sharedInstance.logOut()
         }
     }
 

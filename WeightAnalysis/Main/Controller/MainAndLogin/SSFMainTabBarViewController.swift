@@ -12,7 +12,7 @@ class SSFMainTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        AnalysisBrain.sharedInstance.printDataBase()
+        AccountBrain.sharedInstance.printDataBase()
     }
 
     override func didReceiveMemoryWarning() {

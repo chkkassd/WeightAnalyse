@@ -32,14 +32,14 @@ public class Record: NSManagedObject {
             if let record = (try? context.fetch(request))?.first {
                 record.record_id = recordId
                 record.weight = infoDic?["weight"] as! Double
-                record.time = infoDic?["time"] as? NSDate
-                record.recordUser = User.user(withUserId: (infoDic?["user_id"] as! Int), inManagedObjectContext: context)
+                record.time = infoDic?["time"] as? String
+                record.recordUser = infoDic?["user"] as? User//User.user(withUserId: (infoDic?["user_id"] as! Int), inManagedObjectContext: context)
                 return record
             } else if let record = NSEntityDescription.insertNewObject(forEntityName: "Record", into: context) as? Record {
                 record.record_id = recordId
                 record.weight = infoDic?["weight"] as! Double
-                record.time = infoDic?["time"] as? NSDate
-                record.recordUser = User.user(withUserId: (infoDic?["user_id"] as! Int), inManagedObjectContext: context)
+                record.time = infoDic?["time"] as? String
+                record.recordUser = infoDic?["user"] as? User//User.user(withUserId: (infoDic?["user_id"] as! Int), inManagedObjectContext: context)
                 return record
             }
             return nil
@@ -48,7 +48,7 @@ public class Record: NSManagedObject {
     }
     
     /**
-     This function acts on querying a exist record.If this record is not exist, it will return nil.
+     This function acts on querying a exist record by recoreid.If this record is not exist, it will return nil.
      - Parameters:
         - withRecordId:The unique of a record.
         - inManagedObjectContext:The context which change and save the content of data modal.
@@ -60,6 +60,26 @@ public class Record: NSManagedObject {
     class func record(withRecordId recordId: String, inManagedObjectContext context: NSManagedObjectContext) -> Record? {
         let request: NSFetchRequest<Record> = self.fetchRequest()
         request.predicate = NSPredicate(format: "record_id = %@", recordId)
+        
+        if let record = (try? context.fetch(request))?.first {
+            return record
+        }
+        return nil
+    }
+    
+    /**
+     This function acts on querying a exist record by time.If this record is not exist, it will return nil.
+     - Parameters:
+        - withTime:The time of a record.
+        - inManagedObjectContext:The context which change and save the content of data modal.
+     - Returns: The queryed record corresponding to the recordId in the data base,if it's not exist,return nil.
+     - Authors:
+     Peter.Shi
+     - date: 2016.10.18
+     */
+    class func record(withTime time: String, inManagedObjectContext context: NSManagedObjectContext) -> Record? {
+        let request: NSFetchRequest<Record> = self.fetchRequest()
+        request.predicate = NSPredicate(format: "time = %@", time)
         
         if let record = (try? context.fetch(request))?.first {
             return record
