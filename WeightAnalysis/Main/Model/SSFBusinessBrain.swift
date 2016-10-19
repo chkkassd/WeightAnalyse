@@ -53,7 +53,6 @@ let TargetWeightKey = "targetWeightKey"
 
 // MARK:protocol
 protocol RealatedWeight {
-    var todayWeight: Double { get }
     var targetWeight: Double { get }
 }
 

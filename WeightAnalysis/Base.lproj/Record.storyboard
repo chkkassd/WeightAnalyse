@@ -90,10 +90,6 @@
                             </userDefinedRuntimeAttributes>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="BxN-7J-Ci0"/>
-                                    <exclude reference="EGb-lV-i2v"/>
-                                    <exclude reference="lnK-Yq-934"/>
-                                    <exclude reference="m2n-ti-Xe7"/>
                                     <exclude reference="YM5-LY-Ilj"/>
                                     <exclude reference="bzi-sV-A1c"/>
                                     <exclude reference="qGt-48-wqE"/>
@@ -102,36 +98,56 @@
                                     <exclude reference="QJk-EV-u83"/>
                                     <exclude reference="ZPN-iW-ln4"/>
                                     <exclude reference="qHN-65-MXK"/>
+                                    <exclude reference="BxN-7J-Ci0"/>
+                                    <exclude reference="EGb-lV-i2v"/>
+                                    <exclude reference="lnK-Yq-934"/>
+                                    <exclude reference="m2n-ti-Xe7"/>
                                 </mask>
                             </variation>
                             <variation key="heightClass=compact">
                                 <mask key="constraints">
-                                    <include reference="EGb-lV-i2v"/>
-                                    <include reference="lnK-Yq-934"/>
                                     <include reference="bzi-sV-A1c"/>
                                     <include reference="qGt-48-wqE"/>
                                     <include reference="Bkj-AJ-nIB"/>
                                     <include reference="ZPN-iW-ln4"/>
+                                    <include reference="EGb-lV-i2v"/>
+                                    <include reference="lnK-Yq-934"/>
                                 </mask>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
-                                    <include reference="BxN-7J-Ci0"/>
-                                    <include reference="m2n-ti-Xe7"/>
                                     <include reference="YM5-LY-Ilj"/>
                                     <include reference="vre-sh-ShQ"/>
                                     <include reference="QJk-EV-u83"/>
                                     <include reference="qHN-65-MXK"/>
+                                    <include reference="BxN-7J-Ci0"/>
+                                    <include reference="m2n-ti-Xe7"/>
                                 </mask>
                             </variation>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1cB-PQ-14K">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recordTableViewCell" textLabel="aRC-KD-Dhg" detailTextLabel="w0u-2z-nHK" style="IBUITableViewCellStyleValue1" id="1cB-PQ-14K">
                                 <rect key="frame" x="0.0" y="292" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1cB-PQ-14K" id="ERg-jB-NTL">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aRC-KD-Dhg">
+                                            <frame key="frameInset" minX="15" minY="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="w0u-2z-nHK">
+                                            <frame key="frameInset" minX="316" minY="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
