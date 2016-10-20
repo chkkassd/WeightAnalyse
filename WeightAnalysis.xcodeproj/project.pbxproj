@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		910B69951DB5FC51005BCCEB /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B69941DB5FC51005BCCEB /* RecordView.swift */; };
-		910B69971DB6010F005BCCEB /* SSFBusinessBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B69961DB6010F005BCCEB /* SSFBusinessBrain.swift */; };
+		910B69971DB6010F005BCCEB /* SSFRecordBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B69961DB6010F005BCCEB /* SSFRecordBrain.swift */; };
 		910B69991DB765FB005BCCEB /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B69981DB765FB005BCCEB /* CoreDataTableViewController.swift */; };
 		911459C61D912B770032DE44 /* ConstantValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911459C51D912B770032DE44 /* ConstantValue.swift */; };
 		911459CA1D91393E0032DE44 /* FetchDataBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911459C91D91393E0032DE44 /* FetchDataBrain.swift */; };
@@ -37,7 +37,7 @@
 
 /* Begin PBXFileReference section */
 		910B69941DB5FC51005BCCEB /* RecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
-		910B69961DB6010F005BCCEB /* SSFBusinessBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFBusinessBrain.swift; sourceTree = "<group>"; };
+		910B69961DB6010F005BCCEB /* SSFRecordBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFRecordBrain.swift; sourceTree = "<group>"; };
 		910B69981DB765FB005BCCEB /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		911459C51D912B770032DE44 /* ConstantValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantValue.swift; sourceTree = "<group>"; };
 		911459C91D91393E0032DE44 /* FetchDataBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchDataBrain.swift; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				915352241DAF64380013F6C3 /* SSFAccountBrain.swift */,
-				910B69961DB6010F005BCCEB /* SSFBusinessBrain.swift */,
+				910B69961DB6010F005BCCEB /* SSFRecordBrain.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -386,7 +386,7 @@
 				9133F8801DABA11400BE6086 /* SwiftNotice.swift in Sources */,
 				9133F87D1DAA3CFC00BE6086 /* User+CoreDataClass.swift in Sources */,
 				91E6EB6B1D925F9B0046403A /* Utility.swift in Sources */,
-				910B69971DB6010F005BCCEB /* SSFBusinessBrain.swift in Sources */,
+				910B69971DB6010F005BCCEB /* SSFRecordBrain.swift in Sources */,
 				910B69991DB765FB005BCCEB /* CoreDataTableViewController.swift in Sources */,
 				9153522F1DAF64380013F6C3 /* SSFAccountBrain.swift in Sources */,
 				9133F87C1DAA3CFC00BE6086 /* Record+CoreDataProperties.swift in Sources */,

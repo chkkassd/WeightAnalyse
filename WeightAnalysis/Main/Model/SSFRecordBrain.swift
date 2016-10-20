@@ -18,7 +18,7 @@ import UIKit
  You can creat the class or struct by the flowing ways.
  
 */
-struct BusinessBrain {
+struct RecordBrain: RelatedWeight {
     private var managedObjectContext: NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
     private var appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -52,11 +52,11 @@ struct BusinessBrain {
 let TargetWeightKey = "targetWeightKey"
 
 // MARK:protocol
-protocol RealatedWeight {
+protocol RelatedWeight {
     var targetWeight: Double { get }
 }
 
-extension RealatedWeight {
+extension RelatedWeight {
     var targetWeight: Double {
         get {
             return UserDefaults.standard.double(forKey: TargetWeightKey)

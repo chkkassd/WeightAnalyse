@@ -13,7 +13,6 @@ class SSFRecordTableViewController: CoreDataTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        timeLabel.text = Date().standardTimeString
         updateUI()
     }
     
@@ -24,6 +23,10 @@ class SSFRecordTableViewController: CoreDataTableViewController {
     private var managedObjectContext: NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
     private func updateUI() {
+        timeLabel.text = Date().standardTimeString
+        recordTextField.text = RecordBrain().todayWeight != nil ? String(RecordBrain().todayWeight!) : ""
+        expectTextField.text = RecordBrain().targetWeight == 0 ? "" : String(RecordBrain().targetWeight)
+        
         let request: NSFetchRequest<Record> = Record.fetchRequest()
         request.predicate = NSPredicate(format: "recordUser.user_id = %d", (AccountBrain.sharedInstance.currentUser?.user_id)!)
         request.sortDescriptors = [NSSortDescriptor(key:"time", ascending: true)]
@@ -43,7 +46,7 @@ class SSFRecordTableViewController: CoreDataTableViewController {
         if let weightRecord = fetchedResultsController?.object(at: indexPath) as? Record {
             var weightText,timeText: String?
             weightRecord.managedObjectContext?.performAndWait {
-                weightText = String(weightRecord.weight)
+                weightText = "\(weightRecord.weight)kg"
                 timeText = weightRecord.time
             }
             cell.textLabel?.text = weightText
@@ -58,9 +61,9 @@ class SSFRecordTableViewController: CoreDataTableViewController {
 extension SSFRecordTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == recordTextField {
-            BusinessBrain().record(todayWeight: Double(textField.text!)!, time: Date().standardTimeString)
+            RecordBrain().record(todayWeight: Double(textField.text!)!, time: Date().standardTimeString)
         } else if textField == expectTextField {
-            BusinessBrain().record(targetWeight: Double(textField.text!)!, time: Date().standardTimeString)
+            RecordBrain().record(targetWeight: Double(textField.text!)!, time: Date().standardTimeString)
         }
         textField.endEditing(true)
         return true
