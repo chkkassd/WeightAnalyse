@@ -60,7 +60,7 @@ class LoginView: UIView,LoginStyle,HasBackgroundView,HasCancelButton,CheckInputt
         return view
     }()
     
-    var delegate: LoginViewDelegate?
+    weak var delegate: LoginViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -166,7 +166,7 @@ class RegisterView: UIView,RegisterStyle,HasBackgroundView,HasCancelButton,Check
         return view
     }()
     
-    var delegate: RegisterViewDelegate?
+    weak var delegate: RegisterViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -224,12 +224,12 @@ class RegisterView: UIView,RegisterStyle,HasBackgroundView,HasCancelButton,Check
 
 // MARK: protocol
 
-protocol LoginViewDelegate {
+protocol LoginViewDelegate: class {
     func loginViewDidLogin(loginView: LoginView, email: String, password: String) -> Swift.Void
     func loginViewDidCancel(_ loginView:LoginView) -> Swift.Void
 }
 
-protocol RegisterViewDelegate {
+protocol RegisterViewDelegate: class {
     func registerViewDidRegister(registerView: RegisterView, email: String, password: String, nickName: String) -> Swift.Void
     func registerViewDidCancel(_ registerView:RegisterView) -> Swift.Void
 }

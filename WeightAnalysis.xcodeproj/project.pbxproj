@@ -32,6 +32,8 @@
 		915435801D8E90C4008C5D84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9154357F1D8E90C4008C5D84 /* Assets.xcassets */; };
 		915435831D8E90C4008C5D84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 915435811D8E90C4008C5D84 /* LaunchScreen.storyboard */; };
 		916157691DB4BB17007B9559 /* SSFRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916157681DB4BB17007B9559 /* SSFRecordTableViewController.swift */; };
+		916FB9091DC0AE50000284E4 /* SSFLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916FB9081DC0AE50000284E4 /* SSFLineChartView.swift */; };
+		916FB90B1DC0AE6E000284E4 /* SSFBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916FB90A1DC0AE6E000284E4 /* SSFBarChartView.swift */; };
 		91E6EB6B1D925F9B0046403A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6EB6A1D925F9B0046403A /* Utility.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		915435841D8E90C4008C5D84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9154358B1D8E9413008C5D84 /* WeightAnalysisDocuments.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WeightAnalysisDocuments.playground; sourceTree = "<group>"; };
 		916157681DB4BB17007B9559 /* SSFRecordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFRecordTableViewController.swift; sourceTree = "<group>"; };
+		916FB9081DC0AE50000284E4 /* SSFLineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFLineChartView.swift; sourceTree = "<group>"; };
+		916FB90A1DC0AE6E000284E4 /* SSFBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFBarChartView.swift; sourceTree = "<group>"; };
 		91E6EB6A1D925F9B0046403A /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		91E6EB6C1D9271BC0046403A /* WeightAnalysis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "WeightAnalysis-Bridging-Header.h"; path = "Main/WeightAnalysis-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,6 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				913BDC8C1D9106DB00CB3C3D /* Analyse.storyboard */,
+				916FB9081DC0AE50000284E4 /* SSFLineChartView.swift */,
+				916FB90A1DC0AE6E000284E4 /* SSFBarChartView.swift */,
 			);
 			path = Analyse;
 			sourceTree = "<group>";
@@ -389,11 +395,13 @@
 				910B69971DB6010F005BCCEB /* SSFRecordBrain.swift in Sources */,
 				910B69991DB765FB005BCCEB /* CoreDataTableViewController.swift in Sources */,
 				9153522F1DAF64380013F6C3 /* SSFAccountBrain.swift in Sources */,
+				916FB9091DC0AE50000284E4 /* SSFLineChartView.swift in Sources */,
 				9133F87C1DAA3CFC00BE6086 /* Record+CoreDataProperties.swift in Sources */,
 				915352301DAF64380013F6C3 /* LoginAndRegisterView.swift in Sources */,
 				9133F87B1DAA3CFC00BE6086 /* Record+CoreDataClass.swift in Sources */,
 				911459C61D912B770032DE44 /* ConstantValue.swift in Sources */,
 				916157691DB4BB17007B9559 /* SSFRecordTableViewController.swift in Sources */,
+				916FB90B1DC0AE6E000284E4 /* SSFBarChartView.swift in Sources */,
 				9133F87E1DAA3CFC00BE6086 /* User+CoreDataProperties.swift in Sources */,
 				9153522B1DAF64380013F6C3 /* AppDelegate.swift in Sources */,
 				9153522E1DAF64380013F6C3 /* SSFSettingTableViewController.swift in Sources */,
