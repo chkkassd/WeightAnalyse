@@ -9,7 +9,7 @@
         <!--分析-->
         <scene sceneID="BRj-Tx-SRn">
             <objects>
-                <viewController id="Nfa-tI-XLj" sceneMemberID="viewController">
+                <viewController id="Nfa-tI-XLj" customClass="AnalysisViewController" customModule="WeightAnalysis" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GO9-Bd-g7w"/>
                         <viewControllerLayoutGuide type="bottom" id="oBK-yd-WSc"/>
@@ -17,13 +17,23 @@
                     <view key="view" contentMode="scaleToFill" id="1pa-fP-vzU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gZU-gQ-mdZ" customClass="SSFLineChartView" customModule="WeightAnalysis" customModuleProvider="target">
+                                <frame key="frameInset" minY="72" width="375" height="191"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="分析" id="u5W-uP-8D3"/>
+                    <connections>
+                        <outlet property="lineChartView" destination="gZU-gQ-mdZ" id="wfd-sx-3yJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DPm-QD-uKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1504.8" y="491.60419790104953"/>
+            <point key="canvasLocation" x="1335.2" y="479.01049475262374"/>
         </scene>
         <!--分析-->
         <scene sceneID="yTi-p6-7NP">

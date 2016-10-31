@@ -19,7 +19,7 @@ class SSFBarChartView: UIView {
 
 }
 
-///This protocol describe the presention of barChartView.
+///This protocol describe the presention of barChartView,only class can adopt it.
 protocol SSFBarChartViewDataSource: class {
     
     //Horizontal presentaion

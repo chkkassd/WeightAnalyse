@@ -42,13 +42,38 @@ extension String {
         return md5String as String
     }
     
+    ///Translate a date string(yy-MM-dd) to Date.
+    ///- Authors: Peter.Shi
+    ///- date: 2016.10.28
+    var translatedDate: Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.date(from: self)
+    }
 }
 
 
 extension Date {
+    
+    ///Translate a date of type Date to a date of type String.
+    ///- Authors: Peter.Shi
+    ///- date: 2016.9.28
     var standardTimeString: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: self)
+    }
+    
+    ///Translate a date to weekday.
+    ///- Authors: Peter.Shi
+    ///- date: 2016.10.28
+    var weekdayString: String {
+        let arr = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+        var calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+        let timeZone = TimeZone(identifier: "Asia/Shanghai")
+        calendar.timeZone = timeZone!
+        let calendarComponent = Calendar.Component.weekday
+        let theComponents: DateComponents = calendar.dateComponents([calendarComponent], from:self)
+        return arr[theComponents.weekday!]
     }
 }

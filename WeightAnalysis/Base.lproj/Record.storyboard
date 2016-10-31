@@ -127,7 +127,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recordTableViewCell" textLabel="aRC-KD-Dhg" detailTextLabel="w0u-2z-nHK" style="IBUITableViewCellStyleValue1" id="1cB-PQ-14K">
-                                <rect key="frame" x="0.0" y="292" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="272" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1cB-PQ-14K" id="ERg-jB-NTL">
                                     <frame key="frameInset" width="375" height="43.5"/>
