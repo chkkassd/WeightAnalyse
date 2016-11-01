@@ -68,12 +68,42 @@ extension Date {
     ///- Authors: Peter.Shi
     ///- date: 2016.10.28
     var weekdayString: String {
-        let arr = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+        let arr = ["星期六","星期天", "星期一", "星期二", "星期三", "星期四", "星期五"]
         var calendar = Calendar(identifier: Calendar.Identifier.gregorian)
         let timeZone = TimeZone(identifier: "Asia/Shanghai")
         calendar.timeZone = timeZone!
         let calendarComponent = Calendar.Component.weekday
         let theComponents: DateComponents = calendar.dateComponents([calendarComponent], from:self)
         return arr[theComponents.weekday!]
+    }
+    
+    ///Translate a date to weekdayIndex，saturday is 0.
+    ///- Authors: Peter.Shi
+    ///- date: 2016.11.1
+    var weekdayIndex: Int? {
+        let calendar = Calendar.current
+        let calendarComponent = Calendar.Component.weekday
+        let theComponents: DateComponents = calendar.dateComponents([calendarComponent], from:self)
+        return theComponents.weekday
+    }
+    
+    ///Fetch the first day of a week by a date.
+    ///- Authors: Peter.Shi
+    ///- date: 2016.11.1
+    var firstDayDate: Date? {
+        if let index = self.weekdayIndex {
+           return Date(timeInterval: -Double(index * 24 * 60 * 60), since: self)
+        }
+        return nil
+    }
+
+    ///Fetch the last day of a week by a date.
+    ///- Authors: Peter.Shi
+    ///- date: 2016.11.1
+    var lastDayDate: Date? {
+        if let index = self.weekdayIndex {
+            return Date(timeInterval: Double((6-index) * 24 * 60 * 60), since: self)
+        }
+        return nil
     }
 }

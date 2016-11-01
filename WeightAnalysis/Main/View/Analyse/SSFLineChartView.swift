@@ -29,7 +29,7 @@ class SSFLineChartView: UIView {
     let horizontalGapWidth = 18.0, verticalGapWidth = 15.0, horizontalAxisGap = 10.0, titleToLineGap = 3.0
     
     ///原点
-    var origionPoint: LineChartPoint!
+    var origionPoint: ChartPoint!
     
     override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
@@ -46,7 +46,7 @@ class SSFLineChartView: UIView {
     
     private func drawAxisLine() {
         let startPoint = CGPoint(x: horizontalGapWidth, y: (Double(self.frame.size.height) - verticalGapWidth))
-        origionPoint = LineChartPoint(x: Double(startPoint.x), y: Double(startPoint.y))
+        origionPoint = ChartPoint(x: Double(startPoint.x), y: Double(startPoint.y))
         let endPointHorizontal = CGPoint(x: Double(self.frame.size.width) - horizontalGapWidth, y: Double(self.frame.size.height) - verticalGapWidth)
         let endPointVertical = CGPoint(x: horizontalGapWidth, y: verticalGapWidth)
         
@@ -158,7 +158,7 @@ class SSFLineChartView: UIView {
             shapeLayer?.strokeEnd = 1.0
             self.layer.addSublayer(shapeLayer!)
             
-            if dsource.openAnimation() {
+            if dsource.openAnimation(lineChartView: self) {
                 performAnimation(layer: shapeLayer!)
             }
         }
@@ -199,7 +199,7 @@ protocol SSFLineChartViewDataSource: class {
     func widthOfLine(lineChartView: SSFLineChartView) -> Float
     
     //Weather start the animation
-    func openAnimation() -> Bool
+    func openAnimation(lineChartView: SSFLineChartView) -> Bool
 }
 
 extension SSFLineChartViewDataSource {
@@ -211,7 +211,7 @@ extension SSFLineChartViewDataSource {
         return 1.0
     }
     
-    func openAnimation() -> Bool {
+    func openAnimation(lineChartView: SSFLineChartView) -> Bool {
         return false
     }
 }

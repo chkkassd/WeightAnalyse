@@ -23,11 +23,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mNN-0F-wDg" customClass="SSFBarChartView" customModule="WeightAnalysis" customModuleProvider="target">
+                                <frame key="frameInset" minY="297" width="375" height="184"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="分析" id="u5W-uP-8D3"/>
                     <connections>
+                        <outlet property="barChartView" destination="mNN-0F-wDg" id="Pwu-Zm-TxJ"/>
                         <outlet property="lineChartView" destination="gZU-gQ-mdZ" id="wfd-sx-3yJ"/>
                     </connections>
                 </viewController>

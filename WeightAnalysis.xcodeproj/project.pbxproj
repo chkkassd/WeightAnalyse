@@ -36,7 +36,7 @@
 		916FB90B1DC0AE6E000284E4 /* SSFBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916FB90A1DC0AE6E000284E4 /* SSFBarChartView.swift */; };
 		91E6EB6B1D925F9B0046403A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6EB6A1D925F9B0046403A /* Utility.swift */; };
 		91F9537F1DC1ED4E00A775C6 /* AnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9537E1DC1ED4E00A775C6 /* AnalysisViewController.swift */; };
-		91F953811DC1FA0600A775C6 /* SSFLineChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F953801DC1FA0600A775C6 /* SSFLineChartModel.swift */; };
+		91F953811DC1FA0600A775C6 /* SSFAnalysisBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F953801DC1FA0600A775C6 /* SSFAnalysisBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,7 +73,7 @@
 		91E6EB6A1D925F9B0046403A /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		91E6EB6C1D9271BC0046403A /* WeightAnalysis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "WeightAnalysis-Bridging-Header.h"; path = "Main/WeightAnalysis-Bridging-Header.h"; sourceTree = "<group>"; };
 		91F9537E1DC1ED4E00A775C6 /* AnalysisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisViewController.swift; sourceTree = "<group>"; };
-		91F953801DC1FA0600A775C6 /* SSFLineChartModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFLineChartModel.swift; sourceTree = "<group>"; };
+		91F953801DC1FA0600A775C6 /* SSFAnalysisBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFAnalysisBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,7 +195,7 @@
 			children = (
 				915352241DAF64380013F6C3 /* SSFAccountBrain.swift */,
 				910B69961DB6010F005BCCEB /* SSFRecordBrain.swift */,
-				91F953801DC1FA0600A775C6 /* SSFLineChartModel.swift */,
+				91F953801DC1FA0600A775C6 /* SSFAnalysisBrain.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -401,7 +401,7 @@
 				910B69971DB6010F005BCCEB /* SSFRecordBrain.swift in Sources */,
 				910B69991DB765FB005BCCEB /* CoreDataTableViewController.swift in Sources */,
 				9153522F1DAF64380013F6C3 /* SSFAccountBrain.swift in Sources */,
-				91F953811DC1FA0600A775C6 /* SSFLineChartModel.swift in Sources */,
+				91F953811DC1FA0600A775C6 /* SSFAnalysisBrain.swift in Sources */,
 				916FB9091DC0AE50000284E4 /* SSFLineChartView.swift in Sources */,
 				9133F87C1DAA3CFC00BE6086 /* Record+CoreDataProperties.swift in Sources */,
 				915352301DAF64380013F6C3 /* LoginAndRegisterView.swift in Sources */,
@@ -572,6 +572,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = WeightAnalysis/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SSF.WeightAnalysis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -594,6 +595,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = WeightAnalysis/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SSF.WeightAnalysis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
