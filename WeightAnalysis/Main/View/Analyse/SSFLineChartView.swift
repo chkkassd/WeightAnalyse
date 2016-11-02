@@ -179,6 +179,10 @@ class SSFLineChartView: UIView {
         animation.autoreverses = false
         layer.add(animation, forKey: "strokeEnd")
     }
+    
+    func reloadData() {
+        drawChartLine()
+    }
 }
 
 // MARK:protocol

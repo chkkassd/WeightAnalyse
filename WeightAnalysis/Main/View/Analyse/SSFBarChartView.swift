@@ -170,6 +170,10 @@ class SSFBarChartView: UIView {
         animation.autoreverses = false
         layer.add(animation, forKey: "strokeEnd")
     }
+    
+    func reloadData() {
+        drawChartBar()
+    }
 }
 
 ///This protocol describe the presention of barChartView,only class can adopt it.

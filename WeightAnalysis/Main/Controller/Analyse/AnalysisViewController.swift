@@ -11,11 +11,31 @@ import UIKit
 class AnalysisViewController: UIViewController {
 
     let dataArrHorizontal = ["周六","周日","周一","周二","周三","周四","周五"]
-    var dataArrValue: [Double] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+    var dataArrValue: [Double] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0] {
+        didSet {
+            lineChartView.reloadData()
+            barChartView.reloadData()
+        }
+    }
     let dataArrVertical = ["0","25","50","75","100","125","150","175","200","225"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateData), name: NSNotification.Name(rawValue: RecordUpdateKey), object: nil)
+        updateData()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.lineChartView.datasource = self
+        self.barChartView.datasource = self
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: RecordUpdateKey), object: nil)
+    }
+    
+    @objc private func updateData() {
         if let arr = AnalysisBrain().fetchRecordsOfCurrentWeek() {
             
             let array = arr.map {
@@ -25,12 +45,6 @@ class AnalysisViewController: UIViewController {
                 dataArrValue.replaceSubrange(index...index, with: [weight])
             }
         }
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.lineChartView.datasource = self
-        self.barChartView.datasource = self
     }
     
     @IBOutlet weak var lineChartView: SSFLineChartView!

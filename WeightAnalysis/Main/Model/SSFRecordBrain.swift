@@ -18,6 +18,8 @@ import UIKit
  You can creat the class or struct by the flowing ways.
  
 */
+let RecordUpdateKey = "RecordUpdateKey"
+
 struct RecordBrain: RelatedWeight {
     private var managedObjectContext: NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
@@ -33,14 +35,14 @@ struct RecordBrain: RelatedWeight {
     public func record(todayWeight weight: Double, time: String) {
         var info: [String:Any] = ["weight":weight,"time":time,"record_id":NSUUID.init().uuidString,"user":AccountBrain.sharedInstance.currentUser]
         
-        if let record = Record.record(withTime: time, inManagedObjectContext: managedObjectContext!) {
-            info["record_id"] = record.record_id
-        }
-        self.managedObjectContext?.perform {
+        managedObjectContext?.performAndWait {
+            if let record = Record.record(withTime: time, inManagedObjectContext: self.managedObjectContext!) {
+                info["record_id"] = record.record_id
+            }
             _ = Record.recordWithRecordInfo(recordInfo: info, inManagedObjectContext: self.managedObjectContext!)
             self.appDelegate?.saveContext()
-            
         }
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: RecordUpdateKey), object: nil)
     }
     
     public func record(targetWeight weight: Double, time: String) {
