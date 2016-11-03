@@ -10,13 +10,8 @@ import UIKit
 
 class AnalysisViewController: UIViewController {
 
-    let dataArrHorizontal = ["周六","周日","周一","周二","周三","周四","周五"]
-    var dataArrValue: [Double] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0] {
-        didSet {
-            lineChartView.reloadData()
-            barChartView.reloadData()
-        }
-    }
+    var dataDic = ["周六":0.0,"周日":0.0,"周一":0.0,"周二":0.0,"周三":0.0,"周四":0.0,"周五":0.0]
+    
     let dataArrVertical = ["0","25","50","75","100","125","150","175","200","225"]
     
     override func viewDidLoad() {
@@ -37,13 +32,9 @@ class AnalysisViewController: UIViewController {
     
     @objc private func updateData() {
         if let arr = AnalysisBrain().fetchRecordsOfCurrentWeek() {
-            
-            let array = arr.map {
-                ($0.weight,($0.time!.translatedDate?.weekdayIndex)!)
-            }
-            for (weight,index) in array {
-                dataArrValue.replaceSubrange(index...index, with: [weight])
-            }
+            dataDic.merge(arr.map { (($0.time?.translatedDate?.weekdayString)!,$0.weight) })
+            lineChartView.reloadData()
+            barChartView.reloadData()
         }
     }
     
@@ -55,18 +46,20 @@ class AnalysisViewController: UIViewController {
 extension AnalysisViewController: SSFLineChartViewDataSource {
     //Horizontal presention
     func numberOfHorizontalAxis(lineChartView: SSFLineChartView) -> Int {
-        return dataArrHorizontal.count
+        return dataDic.count//dataArrHorizontal.count
     }
     
     func lineChartView(lineChartView: SSFLineChartView, titleForHorizontalIndex index: Int) -> String {
-        return dataArrHorizontal[index]
+        let titleArr = dataDic.keys.sorted(by: >) as Array
+        return titleArr[index]//dataArrValue[index]
     }
     
     func lineChartView(lineChartView: SSFLineChartView, valueForHorizontalIndex index: Int) -> Double? {
-        if index > dataArrValue.count - 1 {
+        if index > dataDic.count - 1 {
             return nil
         }
-        return dataArrValue[index]
+        let keyArr = dataDic.keys.sorted(by: >) as Array
+        return dataDic[keyArr[index]]//dataArrValue[index]
     }
 
     //Vertical presentaion
@@ -90,18 +83,20 @@ extension AnalysisViewController: SSFLineChartViewDataSource {
 extension AnalysisViewController: SSFBarChartViewDataSource {
     //Horizontal presentaion
     func numberOfHorizontalAxis(barChartView: SSFBarChartView) -> Int {
-        return self.dataArrHorizontal.count
+        return self.dataDic.count
     }
     
     func barChartView(barChartView: SSFBarChartView, titleForHorizontalIndex index: Int) -> String {
-        return self.dataArrHorizontal[index]
+        let titleArr = dataDic.keys.sorted(by: >) as Array
+        return titleArr[index]//dataArrValue[index]
     }
     
     func barChartView(barChartView: SSFBarChartView, valueForHorizontalIndex index: Int) -> Double? {
-        if index > dataArrValue.count - 1 {
+        if index > dataDic.count - 1 {
             return nil
         }
-        return dataArrValue[index]
+        let keyArr = dataDic.keys.sorted(by: >) as Array
+        return dataDic[keyArr[index]]//dataArrValue[index]
     }
     
     //Vertical presentaion

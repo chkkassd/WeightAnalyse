@@ -129,8 +129,8 @@ class AccountBrain {
         let count = try? managedObjectContext?.count(for: User.fetchRequest())
         print("data base has \(count) user\n")
         if let arr = try? managedObjectContext?.fetch(User.fetchRequest()) {
-            for obj in arr! {
-                print("user userid:\(obj.user_id),userEmail:\(obj.email),userName:\(obj.display_name)\n")
+            arr?.forEach {
+                print("user userid:\($0.user_id),userEmail:\($0.email),userName:\($0.display_name)\n")
             }
         }
     }

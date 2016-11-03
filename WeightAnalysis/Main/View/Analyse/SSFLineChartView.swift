@@ -94,7 +94,7 @@ class SSFLineChartView: UIView {
             NSFontAttributeName:UIFont.systemFont(ofSize: 8.0)
         ]
         
-        for title in textArr {
+        textArr.forEach { title in
             let textSize = title.boundingRect(with: self.frame.size, options: NSStringDrawingOptions.usesFontLeading, attributes: attribute, context: nil).size
             let index = textArr.index(of: title)
             let x = origionPoint.x + horizontalAxisGap + averageGapWidth * Double(index!) - Double(textSize.width/2)
@@ -108,7 +108,7 @@ class SSFLineChartView: UIView {
             NSFontAttributeName:UIFont.systemFont(ofSize: 8.0)
         ]
         
-        for title in textArr {
+        textArr.forEach { title in
             let textSize = title.boundingRect(with: self.frame.size, options: NSStringDrawingOptions.usesFontLeading, attributes: attribute, context: nil).size
             let index = textArr.index(of: title)
             title.draw(at:CGPoint(x:origionPoint.x/2 - Double(textSize.width/2), y: origionPoint.y - averageGapWidth * Double(index!) - Double(textSize.height/2)),withAttributes:attribute)
@@ -138,7 +138,7 @@ class SSFLineChartView: UIView {
         linePath.lineJoinStyle = CGLineJoin.round
         linePath.lineCapStyle = CGLineCap.round
         
-        for point in points {
+        points.forEach { point in 
             let index = points.index(of: point)
             if index == 0{
                 linePath.move(to: point)

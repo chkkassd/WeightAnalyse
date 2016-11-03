@@ -68,7 +68,7 @@ extension Date {
     ///- Authors: Peter.Shi
     ///- date: 2016.10.28
     var weekdayString: String {
-        let arr = ["星期六","星期天", "星期一", "星期二", "星期三", "星期四", "星期五"]
+        let arr = ["周六","周日", "周一", "周二", "周三", "周四", "周五"]
         var calendar = Calendar(identifier: Calendar.Identifier.gregorian)
         let timeZone = TimeZone(identifier: "Asia/Shanghai")
         calendar.timeZone = timeZone!
@@ -105,5 +105,45 @@ extension Date {
             return Date(timeInterval: Double((6-index) * 24 * 60 * 60), since: self)
         }
         return nil
+    }
+}
+
+extension Array {
+    ///Delete the element which matchs the predicate.
+    ///- Authors: Peter.Shi
+    ///- date: 2016.11.3
+    func reject(_ predicate: (Element) -> Bool) -> [Element] {
+        return filter { !predicate($0)}
+    }
+    
+    ///Weather all elements match the predicate.
+    ///- Authors: Peter.Shi
+    ///- date: 2016.11.3
+    func allMatch(_ predicate: (Element) -> Bool) -> Bool {
+        return !contains(where: {!predicate($0)})
+    }
+}
+
+extension Dictionary {
+    ///Merge a sequence into a dictionary.
+    ///- Authors: Peter.Shi
+    ///- date: 2016.11.3
+    mutating func merge<S: Sequence>(_ sequence: S) where S.Iterator.Element == (key: Key, value: Value) {
+            sequence.forEach {self[$0] = $1}
+        }
+    
+    ///Initail a dictionary by a sequence,such as [(key:xx, value:xx)].可以通过tuple数组来初始化字典
+    ///- Authors: Peter.Shi
+    ///- date: 2016.11.3
+    init<S: Sequence>(_ sequence: S) where S.Iterator.Element == (key: Key, value: Value) {
+        self = [:]
+        self.merge(sequence)
+    }
+    
+    ///A dictionary's value map to a new value with the transform,after that return a new dictionary.
+    ///- Authors: Peter.Shi
+    ///- date: 2016.11.3
+    func valueMap<T>(_ transform:(Value) -> T) -> [Key:T] {
+        return Dictionary<Key,T>(self.map { ($0,transform($1)) })
     }
 }
