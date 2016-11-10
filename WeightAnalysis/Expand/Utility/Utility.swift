@@ -52,6 +52,15 @@ extension String {
     }
 }
 
+enum WeekDay: Int {
+    case MON = 1
+    case TUE = 2
+    case WED = 3
+    case THU = 4
+    case FRI = 5
+    case SAT = 6
+    case SUN = 7
+}
 
 extension Date {
     
@@ -69,12 +78,15 @@ extension Date {
     ///- date: 2016.10.28
     var weekdayString: String {
         let arr = ["周六","周日", "周一", "周二", "周三", "周四", "周五"]
-        var calendar = Calendar(identifier: Calendar.Identifier.gregorian)
-        let timeZone = TimeZone(identifier: "Asia/Shanghai")
-        calendar.timeZone = timeZone!
-        let calendarComponent = Calendar.Component.weekday
-        let theComponents: DateComponents = calendar.dateComponents([calendarComponent], from:self)
-        return arr[theComponents.weekday!]
+        return arr[self.weekdayIndex!]
+    }
+    
+    ///Translate a date to weekday enum.
+    ///- Authors: Peter.Shi
+    ///- date: 2016.10.28
+    var weekdayEnum: WeekDay {
+        let arr = [WeekDay.SAT,WeekDay.SUN, WeekDay.MON, WeekDay.TUE, WeekDay.WED, WeekDay.THU, WeekDay.FRI]
+        return arr[self.weekdayIndex!]
     }
     
     ///Translate a date to weekdayIndex，saturday is 0.
@@ -145,5 +157,21 @@ extension Dictionary {
     ///- date: 2016.11.3
     func valueMap<T>(_ transform:(Value) -> T) -> [Key:T] {
         return Dictionary<Key,T>(self.map { ($0,transform($1)) })
+    }
+}
+
+extension Sequence where Iterator.Element: Hashable{
+    ///This fuction acts on finding the unique element in the sequence,it will drop the repeated element.
+    ///- Authors: Peter.Shi
+    ///- date: 2016.11.7
+    func unique() -> [Iterator.Element] {
+        var tem: Set<Iterator.Element> = []
+        return filter{ if tem.contains($0) {
+            return false
+        } else {
+            tem.insert($0)
+            return true
+            }
+        }
     }
 }

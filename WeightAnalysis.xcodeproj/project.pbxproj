@@ -14,7 +14,6 @@
 		911459CA1D91393E0032DE44 /* FetchDataBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911459C91D91393E0032DE44 /* FetchDataBrain.swift */; };
 		912D4C1D1D9111DA00CD4FAF /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912D4C191D9111DA00CD4FAF /* Record.storyboard */; };
 		912D4C1E1D9111DA00CD4FAF /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912D4C1B1D9111DA00CD4FAF /* Setting.storyboard */; };
-		912D4C251D9123B800CD4FAF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 912D4C241D9123B800CD4FAF /* Alamofire.framework */; };
 		9133F8761DAA381A00BE6086 /* WeightAnalysis.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9133F8741DAA381A00BE6086 /* WeightAnalysis.xcdatamodeld */; };
 		9133F87B1DAA3CFC00BE6086 /* Record+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133F8771DAA3CFC00BE6086 /* Record+CoreDataClass.swift */; };
 		9133F87C1DAA3CFC00BE6086 /* Record+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133F8781DAA3CFC00BE6086 /* Record+CoreDataProperties.swift */; };
@@ -34,6 +33,7 @@
 		916157691DB4BB17007B9559 /* SSFRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916157681DB4BB17007B9559 /* SSFRecordTableViewController.swift */; };
 		916FB9091DC0AE50000284E4 /* SSFLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916FB9081DC0AE50000284E4 /* SSFLineChartView.swift */; };
 		916FB90B1DC0AE6E000284E4 /* SSFBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916FB90A1DC0AE6E000284E4 /* SSFBarChartView.swift */; };
+		919955FE1DD040010035D9F7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 912D4C241D9123B800CD4FAF /* Alamofire.framework */; };
 		91E6EB6B1D925F9B0046403A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6EB6A1D925F9B0046403A /* Utility.swift */; };
 		91F9537F1DC1ED4E00A775C6 /* AnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9537E1DC1ED4E00A775C6 /* AnalysisViewController.swift */; };
 		91F953811DC1FA0600A775C6 /* SSFAnalysisBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F953801DC1FA0600A775C6 /* SSFAnalysisBrain.swift */; };
@@ -81,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				912D4C251D9123B800CD4FAF /* Alamofire.framework in Frameworks */,
+				919955FE1DD040010035D9F7 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

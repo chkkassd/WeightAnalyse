@@ -10,7 +10,7 @@ import UIKit
 
 class AnalysisViewController: UIViewController {
 
-    var dataDic = ["周六":0.0,"周日":0.0,"周一":0.0,"周二":0.0,"周三":0.0,"周四":0.0,"周五":0.0]
+    var dataDic = [WeekDay.SAT:0.0, WeekDay.SUN:0.0, WeekDay.MON:0.0, WeekDay.TUE:0.0, WeekDay.WED:0.0, WeekDay.THU:0.0, WeekDay.FRI:0.0]
     
     let dataArrVertical = ["0","25","50","75","100","125","150","175","200","225"]
     
@@ -32,7 +32,7 @@ class AnalysisViewController: UIViewController {
     
     @objc private func updateData() {
         if let arr = AnalysisBrain().fetchRecordsOfCurrentWeek() {
-            dataDic.merge(arr.map { (($0.time?.translatedDate?.weekdayString)!,$0.weight) })
+            dataDic.merge(arr.map { (($0.time?.translatedDate?.weekdayEnum)!,$0.weight) })
             lineChartView.reloadData()
             barChartView.reloadData()
         }
@@ -50,15 +50,31 @@ extension AnalysisViewController: SSFLineChartViewDataSource {
     }
     
     func lineChartView(lineChartView: SSFLineChartView, titleForHorizontalIndex index: Int) -> String {
-        let titleArr = dataDic.keys.sorted(by: >) as Array
-        return titleArr[index]//dataArrValue[index]
+        let titleArr = dataDic.keys.sorted(by: { $0.rawValue < $1.rawValue}) as Array<WeekDay>
+        switch titleArr[index] {
+        case .SAT:
+            return "周六"
+        case .SUN:
+            return "周日"
+        case .MON:
+            return "周一"
+        case .TUE:
+            return "周二"
+        case .WED:
+            return "周三"
+        case .THU:
+            return "周四"
+        case .FRI:
+            return "周五"
+        }
+        //return titleArr[index]//dataArrValue[index]
     }
     
     func lineChartView(lineChartView: SSFLineChartView, valueForHorizontalIndex index: Int) -> Double? {
         if index > dataDic.count - 1 {
             return nil
         }
-        let keyArr = dataDic.keys.sorted(by: >) as Array
+        let keyArr = dataDic.keys.sorted{ $0.rawValue < $1.rawValue} as Array
         return dataDic[keyArr[index]]//dataArrValue[index]
     }
 
@@ -87,15 +103,31 @@ extension AnalysisViewController: SSFBarChartViewDataSource {
     }
     
     func barChartView(barChartView: SSFBarChartView, titleForHorizontalIndex index: Int) -> String {
-        let titleArr = dataDic.keys.sorted(by: >) as Array
-        return titleArr[index]//dataArrValue[index]
+        let titleArr = dataDic.keys.sorted(by: { $0.rawValue < $1.rawValue}) as Array<WeekDay>
+        switch titleArr[index] {
+        case .SAT:
+            return "周六"
+        case .SUN:
+            return "周日"
+        case .MON:
+            return "周一"
+        case .TUE:
+            return "周二"
+        case .WED:
+            return "周三"
+        case .THU:
+            return "周四"
+        case .FRI:
+            return "周五"
+        }
+        //return titleArr[index]//dataArrValue[index]
     }
     
     func barChartView(barChartView: SSFBarChartView, valueForHorizontalIndex index: Int) -> Double? {
         if index > dataDic.count - 1 {
             return nil
         }
-        let keyArr = dataDic.keys.sorted(by: >) as Array
+        let keyArr = dataDic.keys.sorted{ $0.rawValue < $1.rawValue} as Array
         return dataDic[keyArr[index]]//dataArrValue[index]
     }
     
