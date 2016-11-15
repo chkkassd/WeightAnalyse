@@ -12,11 +12,15 @@ class AnalysisViewController: UIViewController {
 
     var dataDic = [WeekDay.SAT:0.0, WeekDay.SUN:0.0, WeekDay.MON:0.0, WeekDay.TUE:0.0, WeekDay.WED:0.0, WeekDay.THU:0.0, WeekDay.FRI:0.0]
     
-    let dataArrVertical = ["0","25","50","75","100","125","150","175","200","225"]
+    var dataArrVertical: [String] = []
+    
+    //如果这么写这个arr就会内存泄漏。
+    //var dataArrVertical = ["0","25","50","75","100","125","150","175","200","225"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateData), name: NSNotification.Name(rawValue: RecordUpdateKey), object: nil)
+        dataArrVertical = ["0","25","50","75","100","125","150","175","200","225"]
+        NotificationCenter.default.addObserver(self, selector: #selector(updateData), name: NSNotification.Name(rawValue: RecordUpdateKey), object: nil)
         updateData()
     }
 
@@ -80,10 +84,12 @@ extension AnalysisViewController: SSFLineChartViewDataSource {
 
     //Vertical presentaion
     func numberOfVerticalAxis(lineChartView: SSFLineChartView) -> Int {
+        //let c = dataArrVertical.count
         return dataArrVertical.count
     }
     
     func lineChartView(lineChartView: SSFLineChartView, titleForVerticalIndex index: Int) -> String {
+        //let s = dataArrVertical[index]
         return dataArrVertical[index]
     }
     
@@ -133,11 +139,13 @@ extension AnalysisViewController: SSFBarChartViewDataSource {
     
     //Vertical presentaion
     func numberOfVerticalAxis(barChartView: SSFBarChartView) -> Int {
-        return self.dataArrVertical.count
+        //let c = dataArrVertical.count
+        return dataArrVertical.count
     }
     
     func barChartView(barChartView: SSFBarChartView, titleForVerticalIndex index: Int) -> String {
-        return self.dataArrVertical[index]
+        //let s  = dataArrVertical[index]
+        return dataArrVertical[index]
     }
     
     //bar UI

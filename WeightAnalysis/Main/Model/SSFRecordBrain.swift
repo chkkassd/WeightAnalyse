@@ -21,9 +21,9 @@ import UIKit
 let RecordUpdateKey = "RecordUpdateKey"
 
 struct RecordBrain: RelatedWeight {
-    private var managedObjectContext: NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    private weak var managedObjectContext: NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
-    private var appDelegate = UIApplication.shared.delegate as? AppDelegate
+    private weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     var todayWeight: Double? {
         if let record = Record.record(withTime: Date().standardTimeString, inManagedObjectContext: self.managedObjectContext!) {
@@ -33,7 +33,7 @@ struct RecordBrain: RelatedWeight {
     }
     
     public func record(todayWeight weight: Double, time: String) {
-        var info: [String:Any] = ["weight":weight,"time":time,"record_id":NSUUID.init().uuidString,"user":AccountBrain.sharedInstance.currentUser]
+        var info: [String:Any] = ["weight":weight,"time":time,"record_id":NSUUID.init().uuidString,"user":AccountBrain.sharedInstance.currentUser!]
         
         managedObjectContext?.performAndWait {
             if let record = Record.record(withTime: time, inManagedObjectContext: self.managedObjectContext!) {

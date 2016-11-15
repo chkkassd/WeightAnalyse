@@ -20,9 +20,9 @@ struct ChartPoint {
 }
 
 struct AnalysisBrain {
-    private var managedObjectContext: NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    private weak var managedObjectContext: NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
-    private var appDelegate = UIApplication.shared.delegate as? AppDelegate
+    private weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     func fetchRecordsOfCurrentWeek() -> [Record]? {
         let firstDay = Date().firstDayDate!.standardTimeString

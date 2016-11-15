@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-@IBDesignable
 class SSFLineChartView: UIView {
 
     weak var datasource: SSFLineChartViewDataSource? {
