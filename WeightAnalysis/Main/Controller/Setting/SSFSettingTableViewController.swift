@@ -9,18 +9,19 @@
 import UIKit
 
 class SSFSettingTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         nickNameLabel.text = AccountBrain.sharedInstance.currentUser?.display_name
         emailLabel.text = AccountBrain.sharedInstance.currentUser?.email
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBOutlet weak var nickNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
@@ -32,6 +33,4 @@ class SSFSettingTableViewController: UITableViewController {
             AccountBrain.sharedInstance.logOut()
         }
     }
-
-
 }

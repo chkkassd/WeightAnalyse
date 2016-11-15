@@ -91,6 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
 extension AppDelegate: SSFSignInAndUpViewControllerDelegate {
     func signInAndUpViewController(didSignIn: SSFSignInAndUpViewController) {
         showMainTabView()
@@ -103,6 +104,7 @@ extension AppDelegate: SSFSignInAndUpViewControllerDelegate {
     }
 }
 
+
 extension AppDelegate {
     func showLoginView() -> Swift.Void {
         let controller: SSFSignInAndUpViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SSFSignInAndUpViewController") as! SSFSignInAndUpViewController
@@ -111,7 +113,7 @@ extension AppDelegate {
     }
     
     func showMainTabView() -> Swift.Void {
-        let mainController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        let mainController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SSFMainTabBarViewController")
         self.window?.rootViewController = mainController
     }
 }

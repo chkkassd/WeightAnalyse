@@ -14,15 +14,4 @@ class SSFMainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         AccountBrain.sharedInstance.printDataBase()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-}
-
-extension SSFMainTabBarViewController: UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        
-    }
 }

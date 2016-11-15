@@ -60,6 +60,13 @@ class LoginView: UIView,LoginStyle,HasBackgroundView,HasCancelButton,CheckInputt
         return view
     }()
     
+    lazy var cancelButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: Double(self.frame.size.width) - cancelButtonSize - rowSpace , y: rowSpace, width: cancelButtonSize, height: cancelButtonSize))
+        button.setTitle("关闭", for: UIControlState.normal)
+        button.addTarget(self, action: #selector(cancelButtonPressed), for: UIControlEvents.touchUpInside)
+        return button
+    }()
+    
     weak var delegate: LoginViewDelegate?
     
     override init(frame: CGRect) {
@@ -166,6 +173,13 @@ class RegisterView: UIView,RegisterStyle,HasBackgroundView,HasCancelButton,Check
         return view
     }()
     
+    lazy var cancelButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: Double(self.frame.size.width) - cancelButtonSize - rowSpace , y: rowSpace, width: cancelButtonSize, height: cancelButtonSize))
+        button.setTitle("关闭", for: UIControlState.normal)
+        button.addTarget(self, action: #selector(cancelButtonPressed), for: UIControlEvents.touchUpInside)
+        return button
+    }()
+    
     weak var delegate: RegisterViewDelegate?
     
     override init(frame: CGRect) {
@@ -259,6 +273,7 @@ protocol CheckInputting {
     func checkInput() -> Bool
 }
 
+/*
 extension HasCancelButton {
     var cancelButton: UIButton {
         let button = UIButton(frame: CGRect(x: Double((self as! UIView).frame.size.width) - cancelButtonSize - rowSpace , y: rowSpace, width: cancelButtonSize, height: cancelButtonSize))
@@ -267,3 +282,4 @@ extension HasCancelButton {
         return button
     }
 }
+ */

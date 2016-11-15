@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class SSFRecordTableViewController: CoreDataTableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
@@ -20,7 +20,7 @@ class SSFRecordTableViewController: CoreDataTableViewController {
     @IBOutlet weak var expectTextField: UITextField!
     @IBOutlet weak var timeLabel: UILabel!
     
-    private var managedObjectContext: NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    private weak var managedObjectContext: NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
     private func updateUI() {
         timeLabel.text = Date().standardTimeString
@@ -31,10 +31,6 @@ class SSFRecordTableViewController: CoreDataTableViewController {
         request.predicate = NSPredicate(format: "recordUser.user_id = %d", (AccountBrain.sharedInstance.currentUser?.user_id)!)
         request.sortDescriptors = [NSSortDescriptor(key:"time", ascending: true)]
         fetchedResultsController = NSFetchedResultsController(fetchRequest:request as! NSFetchRequest<NSFetchRequestResult>, managedObjectContext: managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 
     // MARK: - Table view data source
@@ -52,7 +48,6 @@ class SSFRecordTableViewController: CoreDataTableViewController {
             cell.textLabel?.text = weightText
             cell.detailTextLabel?.text = timeText
         }
-        
         return cell
     }
 

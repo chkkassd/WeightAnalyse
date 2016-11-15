@@ -8,20 +8,10 @@
 
 import UIKit
 
-protocol SSFSignInAndUpViewControllerDelegate {
-    func signInAndUpViewController(didSignIn: SSFSignInAndUpViewController) -> Swift.Void
-    func signInAndUpViewController(didRegister: SSFSignInAndUpViewController) -> Swift.Void
-}
-
 class SSFSignInAndUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func signInButtonPressed(_ sender: UIButton) {
@@ -42,7 +32,7 @@ class SSFSignInAndUpViewController: UIViewController {
         return view!
     }()
     
-    var delegate: SSFSignInAndUpViewControllerDelegate?
+    weak var delegate: SSFSignInAndUpViewControllerDelegate?
 }
 
 extension SSFSignInAndUpViewController: RegisterViewDelegate {
@@ -85,4 +75,9 @@ extension SSFSignInAndUpViewController: LoginViewDelegate {
     func loginViewDidCancel(_ loginView: LoginView) {
         lView.removeFromSuperview()
     }
+}
+
+protocol SSFSignInAndUpViewControllerDelegate: class{
+    func signInAndUpViewController(didSignIn: SSFSignInAndUpViewController) -> Swift.Void
+    func signInAndUpViewController(didRegister: SSFSignInAndUpViewController) -> Swift.Void
 }

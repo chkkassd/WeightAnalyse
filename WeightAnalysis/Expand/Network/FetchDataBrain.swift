@@ -18,7 +18,7 @@ import Alamofire
  60005: 密码不正确
  */
 
-class FetchDataBrain {
+struct FetchDataBrain {
     
     /**
      This function returns a string which uses to connect to the work.

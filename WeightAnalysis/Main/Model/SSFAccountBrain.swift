@@ -37,10 +37,12 @@ let UserIdKey = "UserIdOfLoginUser"
 */
 class AccountBrain {
     static let sharedInstance = AccountBrain()
+    private init(){}
     
-    private var managedObjectContext: NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    private weak var managedObjectContext: NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
 
-    private var appDelegate = UIApplication.shared.delegate as? AppDelegate
+    private weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     
     ///The current user of app,open to the whole project.
     public var currentUser: User? {
@@ -50,18 +52,23 @@ class AccountBrain {
             } else {
                 //fetch from file
                 let userId = (UserDefaults.standard.integer(forKey: UserIdKey))
-                if let userFromBase = User.user(withUserId: userId, inManagedObjectContext: self.managedObjectContext!) {
-                    self.loginUser = userFromBase
-                    return userFromBase
-                } else {
-                return nil
-                }
+                var userFromBase: User?
+                self.managedObjectContext?.performAndWait {
+                        if let userFB = User.user(withUserId: userId, inManagedObjectContext: self.managedObjectContext!) {
+                            userFromBase = userFB
+                        } else {
+                            userFromBase = nil
+                        }
+                    }
+                self.loginUser = userFromBase
+                return userFromBase
             }
         }
         set {
             self.loginUser = newValue
         }
     }
+    
     
     ///The current user of app,just open to SettingBrain.It's a private variable.
     private var loginUser: User?
@@ -82,20 +89,24 @@ class AccountBrain {
      Peter.Shi
      - date: 2016.9.28
      */
-    public func login(email: String, password: String, completionHandler:@escaping CompletionHandler<User>) -> Swift.Void {
+    public func login(email: String, password: String, completionHandler:@escaping CompletionHandler<User?>) -> Swift.Void {
         FetchDataBrain().signIn(email: email, password: password) { businessResult in
             switch businessResult {
             case .success(let value):
                 if let info = (value as? [String : Any])?["user"] {
-                    self.managedObjectContext?.perform{
-                        if let user = User.userWithUserInfo(userInfo: info, inManagedObjectContext: self.managedObjectContext!) {
-                            self.appDelegate?.saveContext()
-                            self.loginUser = user
-                            UserDefaults.standard.set(NSInteger(user.user_id), forKey: UserIdKey)
-                            UserDefaults.standard.synchronize()
-                            completionHandler(SSFResult.success(user))
+                    var myUser: User?
+                    
+                    self.managedObjectContext?.performAndWait { [unowned unself = self] in
+                        if let user = User.userWithUserInfo(userInfo: info, inManagedObjectContext: unself.managedObjectContext!) {
+                            unself.appDelegate?.saveContext()
+                            //completionHandler(SSFResult.success(user))
+                            myUser = user
                         }
                     }
+                    self.loginUser = myUser
+                    UserDefaults.standard.set(NSInteger((myUser?.user_id)!), forKey: UserIdKey)
+                    UserDefaults.standard.synchronize()
+                    completionHandler(SSFResult.success(myUser))
                 }
             case .failure(let value):
                 completionHandler(SSFResult.failure(value))
@@ -113,7 +124,7 @@ class AccountBrain {
      Peter.Shi
      - date: 2016.9.28
      */
-    public func register(email: String, password: String, nickName: String, completionHandler:@escaping CompletionHandler<User>) -> Swift.Void {
+    public func register(email: String, password: String, nickName: String, completionHandler:@escaping CompletionHandler<User?>) -> Swift.Void {
         FetchDataBrain().signUp(email: email, password: password, displayName: nickName) { businessResult in
             switch businessResult {
             case .success(_):
