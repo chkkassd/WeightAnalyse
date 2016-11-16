@@ -9,20 +9,29 @@
 import UIKit
 
 class SSFBarChartView: UIView {
-
-    weak var datasource: SSFBarChartViewDataSource? {
-        didSet {
-            let index = datasource?.numberOfVerticalAxis(barChartView: self)
-            proportion = (Double(self.frame.size.height) - verticalGapWidth * 2)/Double((datasource?.barChartView(barChartView: self, titleForVerticalIndex: (index!-1)))!)!
-        }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    convenience init(frame: CGRect, datasource:SSFBarChartViewDataSource) {
+        self.init(frame:frame)
+        self.datasource = datasource
+        let startPoint = CGPoint(x: horizontalGapWidth, y: (Double(frame.size.height) - verticalGapWidth))
+        origionPoint = ChartPoint(x: Double(startPoint.x), y: Double(startPoint.y))
+    }
+    
+    weak var datasource: SSFBarChartViewDataSource?
     
     //y方向比例尺
     var ratio: Double {
-        return proportion
+        let index = datasource?.numberOfVerticalAxis(barChartView: self)
+        return (Double(self.frame.size.height) - verticalGapWidth * 2)/Double((datasource?.barChartView(barChartView: self, titleForVerticalIndex: (index!-1)))!)!
     }
-    
-    private var proportion = 0.0
     
     let horizontalGapWidth = 18.0, verticalGapWidth = 15.0, horizontalAxisGap = 20.0, titleToLineGap = 3.0
     
@@ -44,7 +53,6 @@ class SSFBarChartView: UIView {
     
     private func drawAxisLine() {
         let startPoint = CGPoint(x: horizontalGapWidth, y: (Double(self.frame.size.height) - verticalGapWidth))
-        origionPoint = ChartPoint(x: Double(startPoint.x), y: Double(startPoint.y))
         let endPointHorizontal = CGPoint(x: Double(self.frame.size.width) - horizontalGapWidth, y: Double(self.frame.size.height) - verticalGapWidth)
         let endPointVertical = CGPoint(x: horizontalGapWidth, y: verticalGapWidth)
         

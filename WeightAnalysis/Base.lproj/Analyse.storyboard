@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,37 +20,9 @@
                     <view key="view" contentMode="scaleToFill" id="1pa-fP-vzU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gZU-gQ-mdZ" customClass="SSFLineChartView" customModule="WeightAnalysis" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="191"/>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="gZU-gQ-mdZ" secondAttribute="height" multiplier="375:191" id="9Zl-tw-Ysk"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNN-0F-wDg" customClass="SSFBarChartView" customModule="WeightAnalysis" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="292" width="375" height="184"/>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="mNN-0F-wDg" secondAttribute="height" multiplier="375:184" id="5Hd-B9-lEd"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="gZU-gQ-mdZ" firstAttribute="leading" secondItem="1pa-fP-vzU" secondAttribute="leading" id="1Np-u2-1t2"/>
-                            <constraint firstAttribute="trailing" secondItem="gZU-gQ-mdZ" secondAttribute="trailing" id="93b-gX-vXO"/>
-                            <constraint firstAttribute="trailing" secondItem="mNN-0F-wDg" secondAttribute="trailing" id="Gfz-gz-fia"/>
-                            <constraint firstItem="mNN-0F-wDg" firstAttribute="top" secondItem="gZU-gQ-mdZ" secondAttribute="bottom" constant="29" id="KUO-oY-oTC"/>
-                            <constraint firstItem="mNN-0F-wDg" firstAttribute="leading" secondItem="1pa-fP-vzU" secondAttribute="leading" id="lm1-pv-JGg"/>
-                            <constraint firstItem="gZU-gQ-mdZ" firstAttribute="top" secondItem="GO9-Bd-g7w" secondAttribute="bottom" constant="8" id="qqZ-dC-D4p"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="分析" id="u5W-uP-8D3"/>
-                    <connections>
-                        <outlet property="barChartView" destination="mNN-0F-wDg" id="Pwu-Zm-TxJ"/>
-                        <outlet property="lineChartView" destination="gZU-gQ-mdZ" id="wfd-sx-3yJ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DPm-QD-uKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -76,24 +47,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BLU-h7-cmD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="565.60000000000002" y="491.60419790104953"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="a8Q-OX-zk1">
-            <objects>
-                <viewController id="4Gi-fV-CIv" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qwS-5P-Zu4"/>
-                        <viewControllerLayoutGuide type="bottom" id="e3Q-fY-pFw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Zpc-Rv-lL2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.4532053801" blue="0.53704295560000004" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y5Q-6A-YWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-276" y="1022"/>
         </scene>
     </scenes>
     <resources>
