@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		910AAF301DE29A72002B92AE /* FIFOQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910AAF2F1DE29A72002B92AE /* FIFOQueue.swift */; };
 		910B69951DB5FC51005BCCEB /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B69941DB5FC51005BCCEB /* RecordView.swift */; };
 		910B69971DB6010F005BCCEB /* SSFRecordBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B69961DB6010F005BCCEB /* SSFRecordBrain.swift */; };
 		910B69991DB765FB005BCCEB /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B69981DB765FB005BCCEB /* CoreDataTableViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		910AAF2F1DE29A72002B92AE /* FIFOQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIFOQueue.swift; sourceTree = "<group>"; };
 		910B69941DB5FC51005BCCEB /* RecordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		910B69961DB6010F005BCCEB /* SSFRecordBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFRecordBrain.swift; sourceTree = "<group>"; };
 		910B69981DB765FB005BCCEB /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			children = (
 				9133F87F1DABA11400BE6086 /* SwiftNotice.swift */,
 				91E6EB6A1D925F9B0046403A /* Utility.swift */,
+				910AAF2F1DE29A72002B92AE /* FIFOQueue.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				911459C61D912B770032DE44 /* ConstantValue.swift in Sources */,
 				916157691DB4BB17007B9559 /* SSFRecordTableViewController.swift in Sources */,
 				916FB90B1DC0AE6E000284E4 /* SSFBarChartView.swift in Sources */,
+				910AAF301DE29A72002B92AE /* FIFOQueue.swift in Sources */,
 				9133F87E1DAA3CFC00BE6086 /* User+CoreDataProperties.swift in Sources */,
 				9153522B1DAF64380013F6C3 /* AppDelegate.swift in Sources */,
 				9153522E1DAF64380013F6C3 /* SSFSettingTableViewController.swift in Sources */,
