@@ -26,10 +26,7 @@ struct RecordBrain: RelatedWeight {
     private weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     var todayWeight: Double? {
-        if let record = Record.record(withTime: Date().standardTimeString, inManagedObjectContext: self.managedObjectContext!) {
-            return record.weight
-        }
-        return nil
+        return Record.record(withTime: Date().standardTimeString, inManagedObjectContext: self.managedObjectContext!).map{ $0.weight }
     }
     
     public func record(todayWeight weight: Double, time: String) {

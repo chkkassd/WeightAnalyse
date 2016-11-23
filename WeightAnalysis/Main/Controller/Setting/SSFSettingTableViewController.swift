@@ -16,11 +16,6 @@ class SSFSettingTableViewController: UITableViewController {
         emailLabel.text = AccountBrain.sharedInstance.currentUser?.email
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBOutlet weak var nickNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
