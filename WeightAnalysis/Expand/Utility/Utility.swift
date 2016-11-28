@@ -8,6 +8,8 @@
 
 import Foundation
 
+//MARK:- Extension
+
 extension String {
     /**
      Data transform to String
@@ -174,4 +176,28 @@ extension Sequence where Iterator.Element: Hashable{
             }
         }
     }
+}
+
+
+//MARK:- CustomOperator
+
+infix operator !!
+
+///This fuction acts on force unwrapped an optional value, and if it's nil,crash and print the custom error message .
+///- Authors: Peter.Shi
+///- date: 2016.11.28
+func !!<T>(wrapped: T?, failureText: @autoclosure ()->String) -> T {
+    if let x = wrapped { return x }
+    fatalError(failureText())
+}
+
+infix operator !?
+
+///This fuction acts on force unwrapped an optional value.And when it's in debug,if it's nil,crash and print the custom error message. When it's in release,if it's nil,it won't crash and vend a default value.
+///- Authors: Peter.Shi
+///- date: 2016.11.28
+func !?<T>(wrapped: T?, nilDefault: @autoclosure ()->(value: T, text: String)) -> T {
+    assert(wrapped != nil, nilDefault().text)
+    
+    return wrapped ?? nilDefault().value
 }
