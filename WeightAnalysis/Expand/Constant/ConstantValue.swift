@@ -9,7 +9,4 @@
 import Foundation
 import UIKit
 
-public let serverIp = "120.24.67.134"
-public let serverPort = "8080"
-
 public let iOSSystem = Double(UIDevice.current.systemVersion)!

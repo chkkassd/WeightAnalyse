@@ -133,7 +133,7 @@ extension Array {
     ///Weather all elements match the predicate.
     ///- Authors: Peter.Shi
     ///- date: 2016.11.3
-    func allMatch(_ predicate: (Element) -> Bool) -> Bool {
+    func all(matching predicate: (Element) -> Bool) -> Bool {
         return !contains(where: {!predicate($0)})
     }
 }
@@ -142,7 +142,7 @@ extension Dictionary {
     ///Merge a sequence into a dictionary.
     ///- Authors: Peter.Shi
     ///- date: 2016.11.3
-    mutating func merge<S: Sequence>(_ sequence: S) where S.Iterator.Element == (key: Key, value: Value) {
+    mutating func merge<S>(_ sequence: S) where S: Sequence, S.Iterator.Element == (key: Key, value: Value) {
             sequence.forEach {self[$0] = $1}
         }
     

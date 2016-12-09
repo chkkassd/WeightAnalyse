@@ -34,6 +34,7 @@
 		916157691DB4BB17007B9559 /* SSFRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916157681DB4BB17007B9559 /* SSFRecordTableViewController.swift */; };
 		916FB9091DC0AE50000284E4 /* SSFLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916FB9081DC0AE50000284E4 /* SSFLineChartView.swift */; };
 		916FB90B1DC0AE6E000284E4 /* SSFBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916FB90A1DC0AE6E000284E4 /* SSFBarChartView.swift */; };
+		918FEEC51DED103400EFCAF5 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918FEEC41DED103400EFCAF5 /* Configuration.swift */; };
 		919955FE1DD040010035D9F7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 912D4C241D9123B800CD4FAF /* Alamofire.framework */; };
 		91E6EB6B1D925F9B0046403A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6EB6A1D925F9B0046403A /* Utility.swift */; };
 		91F9537F1DC1ED4E00A775C6 /* AnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9537E1DC1ED4E00A775C6 /* AnalysisViewController.swift */; };
@@ -72,6 +73,7 @@
 		916157681DB4BB17007B9559 /* SSFRecordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFRecordTableViewController.swift; sourceTree = "<group>"; };
 		916FB9081DC0AE50000284E4 /* SSFLineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFLineChartView.swift; sourceTree = "<group>"; };
 		916FB90A1DC0AE6E000284E4 /* SSFBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFBarChartView.swift; sourceTree = "<group>"; };
+		918FEEC41DED103400EFCAF5 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		91E6EB6A1D925F9B0046403A /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		91E6EB6C1D9271BC0046403A /* WeightAnalysis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "WeightAnalysis-Bridging-Header.h"; path = "Main/WeightAnalysis-Bridging-Header.h"; sourceTree = "<group>"; };
 		91F9537E1DC1ED4E00A775C6 /* AnalysisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				911459C51D912B770032DE44 /* ConstantValue.swift */,
+				918FEEC41DED103400EFCAF5 /* Configuration.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				910B69991DB765FB005BCCEB /* CoreDataTableViewController.swift in Sources */,
 				9153522F1DAF64380013F6C3 /* SSFAccountBrain.swift in Sources */,
 				91F953811DC1FA0600A775C6 /* SSFAnalysisBrain.swift in Sources */,
+				918FEEC51DED103400EFCAF5 /* Configuration.swift in Sources */,
 				916FB9091DC0AE50000284E4 /* SSFLineChartView.swift in Sources */,
 				9133F87C1DAA3CFC00BE6086 /* Record+CoreDataProperties.swift in Sources */,
 				915352301DAF64380013F6C3 /* LoginAndRegisterView.swift in Sources */,
@@ -574,9 +578,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = WeightAnalysis/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SSF.WeightAnalysis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -597,9 +602,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = WeightAnalysis/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SSF.WeightAnalysis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -609,6 +615,81 @@
 			};
 			name = Release;
 		};
+		918FEEC21DED0F9000EFCAF5 /* UAT */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = UAT;
+		};
+		918FEEC31DED0F9000EFCAF5 /* UAT */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 5E6EZZ7JT4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = WeightAnalysis/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SSF.WeightAnalysis;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = UAT;
+				SWIFT_OBJC_BRIDGING_HEADER = "WeightAnalysis/Main/WeightAnalysis-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = UAT;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -616,6 +697,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				915435851D8E90C4008C5D84 /* Debug */,
+				918FEEC21DED0F9000EFCAF5 /* UAT */,
 				915435861D8E90C4008C5D84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -625,6 +707,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				915435881D8E90C4008C5D84 /* Debug */,
+				918FEEC31DED0F9000EFCAF5 /* UAT */,
 				915435891D8E90C4008C5D84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

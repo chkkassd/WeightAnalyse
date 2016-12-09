@@ -39,70 +39,71 @@ import Foundation
         q.first // "1"
  ---
   */
-struct Queue<Element>: QueueType {
-    var left: [Element]
-    var right: [Element]
+struct FIFOQueue<Element>: Queue {
+    fileprivate var left: [Element]
+    fileprivate var right: [Element]
     
     init() {
         left = []
         right = []
     }
     
+    /// 将元素添加到队列最后
+    /// - 复杂度: O(1)
     mutating func enqueue(newElement: Element) {
         right.append(newElement)
     }
     
+    /// 从队列前端移除一个元素
+    /// 当队列为空时，返回 nil
+    /// - 复杂度: 平摊 O(1)
     mutating func dequeue() -> Element? {
-        guard !(left.isEmpty && right.isEmpty) else {
-            return nil
-        }
         if left.isEmpty {
             left = right.reversed()
-            right.removeAll(keepingCapacity: true)
+            right.removeAll()
         }
-        return left.removeLast()
+        return left.popLast()
     }
 }
 
-protocol QueueType {
+protocol Queue {
     associatedtype Element
     mutating func enqueue(newElement: Element)
     mutating func dequeue() -> Element?
 }
 
-extension Queue: Collection {
-    var startIndex: Int { return 0 }
-    var endIndex: Int { return left.count + right.count }
+extension FIFOQueue: Collection {
+    public var startIndex: Int { return 0 }
+    public var endIndex: Int { return left.count + right.count }
     
-    func index(after i: Int) -> Int {
+    public func index(after i: Int) -> Int {
+        precondition(i<endIndex)
         return i + 1
     }
     
-    subscript(idx: Int ) -> Element {
-        precondition((0..<endIndex).contains(idx), "Index out of bounds")
-        if idx < left.endIndex {
-            return left [ left.count - idx]
+    public subscript(position: Int) -> Element {
+        precondition((0..<endIndex).contains(position), "Index out of bounds")
+        if position < left.endIndex {
+            return left[left.count - position - 1]
         } else {
-            return right[idx - left.count] }
+            return right[position - left.count]
+        }
     }
 }
 
-extension Queue: ExpressibleByArrayLiteral {
-    init(arrayLiteral: Element...) {
+extension FIFOQueue: ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Element...) {
         self.init()
-        self.left = arrayLiteral.reversed()
+        self.left = elements.reversed()
         self.right = []
     }
 }
 
-extension Queue: RangeReplaceableCollection {
-    mutating func reserveCapacity(_ n: Int) {
-        return
-    }
-    
-    mutating func replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C) where C : Collection, C.Iterator.Element == Element {
+extension FIFOQueue: RangeReplaceableCollection {
+    mutating func replaceSubrange<C: Collection>(_ subrange: Range<Int>,
+                                  with newElements: C) where C.Iterator.Element == Element {
         right = left.reversed() + right
-        left.removeAll(keepingCapacity: true)
+        left.removeAll()
         right.replaceSubrange(subrange, with: newElements)
     }
 }
